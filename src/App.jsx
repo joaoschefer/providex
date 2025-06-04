@@ -1,5 +1,5 @@
 // App.jsx
-import { HashRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import './App.css'
@@ -14,7 +14,7 @@ import PaginaCategoria from "./pages/PaginaCategoria"; // JÁ DEVE ESTAR IMPORTA
 
 function App() {
   return (
-    <HashRouter>
+    <BrowserRouter>
       <Header />
       <Routes>
         <Route path="/" element={<Inicio />} />
@@ -24,7 +24,7 @@ function App() {
         <Route path="/categoria/:nomeCategoria" element={<PaginaCategoria />} />
         <Route path="/produto/:id" element={<DetalheProduto />} />
       </Routes>
-    </HashRouter>
+    </BrowserRouter>
   );
 }
 
