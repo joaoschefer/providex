@@ -1,0 +1,232 @@
+/* Estilos base (seu CSS original, que está bom) */
+.footer {
+  background-color: #0A3B2D;
+  color: #FFFFFF;
+  padding: 3rem 0 1rem; /* Ajuste o padding superior/inferior conforme o design final */
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px; /* Garante um respiro nas laterais */
+}
+
+.footer-content {
+  display: flex;
+  flex-wrap: wrap; /* Essencial para a responsividade das seções */
+  justify-content: space-between;
+  gap: 2rem; /* Gap padrão para telas maiores */
+  margin-bottom: 2rem;
+}
+
+.footer-section {
+  flex: 1; /* Permite que as seções cresçam e ocupem espaço disponível */
+  min-width: 200px; /* Impede que as seções fiquem muito estreitas antes de quebrar linha */
+  /* Exemplo: se houver espaço para 4x200px, elas ficarão em uma linha.
+     Se não, elas quebrarão para a próxima linha. */
+}
+
+.logo-container {
+  margin-bottom: 1rem;
+  /* Adicione estilos para o h1 dentro se necessário, ou para o container se usar a imagem */
+}
+
+/* Se estiver usando a imagem do logo */
+.footer-logo {
+  height: 50px; /* Ou o tamanho desejado */
+  width: auto;
+  margin-bottom: 1rem; /* Se não houver um h1 abaixo */
+  /* filter: brightness(1.2); /* Mantido do seu CSS */
+}
+
+.footer-section.about h1 { /* Estilizando o h1 se ele for o logo */
+  font-size: 1.8rem; /* Ajuste conforme necessário */
+  color: #FFFFFF;
+  margin-bottom: 1rem;
+  font-weight: bold; /* Ou o peso da fonte da sua marca */
+}
+
+
+.footer-description {
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+  font-size: 0.9rem;
+  color: #EEEEEE;
+}
+
+.social-media {
+  display: flex;
+  gap: 1rem; /* Espaçamento entre os ícones */
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  color: #FFFFFF;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  font-size: 1.2rem; /* Tamanho do ícone */
+}
+
+.social-link:hover {
+  background-color: #2A9D6F;
+}
+
+.footer-title {
+  font-size: 1.2rem;
+  margin-bottom: 1.2rem;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+.footer-title::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 50px;
+  height: 2px;
+  background-color: #2A9D6F;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li {
+  margin-bottom: 0.8rem;
+}
+
+.footer-links a {
+  color: #EEEEEE;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  font-size: 0.9rem;
+}
+
+.footer-links a:hover {
+  color: #3CB989; /* Cor de hover mais clara ou contrastante */
+}
+
+.contact-info p {
+  margin-bottom: 0.8rem;
+  display: flex;
+  align-items: center;
+  font-size: 0.9rem;
+}
+
+.contact-info svg {
+  margin-right: 0.8rem;
+  color: #2A9D6F;
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap; /* Para que os links inferiores quebrem se necessário */
+  gap: 1rem; /* Espaçamento entre o texto de copyright e os links inferiores */
+  font-size: 0.85rem;
+}
+
+.footer-bottom p {
+  margin: 0; /* Remove margem padrão do parágrafo */
+}
+
+.footer-bottom-links {
+  display: flex;
+  gap: 1.5rem; /* Espaçamento entre os links "Política de Privacidade" e "Termos de Uso" */
+}
+
+.footer-bottom-links a {
+  color: #EEEEEE;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-bottom-links a:hover {
+  color: #3CB989;
+}
+
+/* --- Responsividade --- */
+
+/* Tablets e Desktops Menores (ex: até 992px) */
+@media (max-width: 992px) {
+  .footer-content {
+    gap: 2.5rem; /* Pode ajustar o gap geral aqui se necessário */
+  }
+
+  .footer-section {
+    /* Duas colunas: cada seção ocupa metade do espaço menos metade do gap */
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: calc(50% - 1.25rem); /* Se .footer-content gap for 2.5rem */
+    /* Se você manteve o gap do .footer-content em 2rem (base), seria calc(50% - 1rem) */
+    /* Se você alterou o gap do .footer-content para 3rem aqui, seria calc(50% - 1.5rem) */
+    /* Vamos assumir que o gap do .footer-content será 2.5rem para este breakpoint: */
+  }
+}
+
+/* Dispositivos Móveis (ex: até 768px) */
+@media (max-width: 768px) {
+  .footer-content {
+    flex-direction: column; /* Empilha as seções principais */
+    gap: 2rem; /* Espaçamento entre as seções empilhadas */
+  }
+
+  .footer-section {
+    flex-basis: 100%; /* Cada seção ocupa a largura total */
+    /* O min-width: 200px do estilo base não interfere mais aqui */
+    margin-bottom: 1rem; /* Adiciona um espaço abaixo de cada seção, exceto talvez a última */
+  }
+  .footer-section:last-child {
+    margin-bottom: 0;
+  }
+
+  .footer-title {
+    font-size: 1.1rem; /* Levemente menor em telas pequenas */
+  }
+
+  .footer-bottom {
+    flex-direction: column; /* Empilha o copyright e os links inferiores */
+    text-align: center; /* Centraliza o texto */
+    gap: 0.8rem; /* Espaçamento entre copyright e bloco de links */
+  }
+
+  .footer-bottom-links {
+    justify-content: center; /* Centraliza os links inferiores quando em coluna */
+    gap: 1rem;
+  }
+}
+
+/* Telas Muito Pequenas (opcional, ex: até 480px) */
+@media (max-width: 480px) {
+  .container {
+    padding: 0 15px; /* Menos padding lateral em telas muito pequenas */
+  }
+
+  .footer-description,
+  .footer-links a,
+  .contact-info p {
+    font-size: 0.85rem; /* Pode reduzir um pouco mais a fonte se necessário */
+  }
+
+  .social-link {
+    width: 32px;
+    height: 32px;
+    font-size: 1rem;
+  }
+
+  .footer-title {
+    font-size: 1rem;
+  }
+}

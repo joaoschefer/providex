@@ -1,0 +1,93 @@
+.menu-lateral {
+  width: 250px;
+  min-width: 250px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.lista {
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.titulo-categorias {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.lista-item {
+  text-decoration: none;
+  color: #000000;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+
+.lista-item:hover {
+  background-color: #e9f7f1;
+  color: #000000;
+}
+
+.icon {
+  font-size: 20px;
+  color: #328f62;
+}
+
+.linha-separadora {
+  height: 1px;
+  background-color: #ccc;
+  margin-bottom: 12px;
+}
+
+/* Depoimentos */
+.depoimentos {
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+}
+
+.titulo-depoimentos {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+.depoimentos-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.depoimento-card {
+  background-color: #f9f9f9;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+}
+
+.depoimento-card p {
+  font-style: italic;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+.depoimento-card span {
+  font-weight: bold;
+  color: #328f62;
+  font-size: 0.95rem;
+}

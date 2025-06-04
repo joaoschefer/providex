@@ -1,0 +1,107 @@
+/* Inicio.css */
+
+/* ... seus estilos existentes ... */
+
+/* --- Estilos para Faixa de Diferenciais (ATUALIZADO) --- */
+.faixa-diferenciais-container {
+  display: flex;
+  /* Distribui os itens igualmente com espaço entre eles, ocupando a largura total */
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--cor-branco-puro);
+  padding: 18px 15px;
+  border-bottom: 2px solid #000000; /* Cor roxa da borda inferior */
+  margin-bottom: 25px;
+  width: 100%;
+  box-sizing: border-box;
+  flex-wrap: nowrap; /* FORÇA FICAR NA MESMA LINHA EM DESKTOP */
+  gap: 10px; /* Espaço mínimo entre os itens. Será maior devido ao space-between */
+}
+
+.diferencial-item {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Espaço entre ícone e texto */
+  color: var(--cor-grafite-suave);
+  text-align: left;
+  /* flex: 1 1 auto; */ /* Permite que os itens cresçam e encolham, mas pode ser demais */
+  /* Se os itens estiverem muito espremidos, pode ser necessário adicionar um min-width aqui
+     ou reduzir ainda mais os tamanhos/espaçamentos abaixo */
+}
+
+.diferencial-icon svg {
+  font-size: 2rem; /* << AUMENTADO */
+  color: #000000; /* Cor roxa dos ícones */
+  flex-shrink: 0;
+}
+
+.diferencial-text {
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.9rem; /* << AUMENTADO */
+  line-height: 1.25; /* Ajustado para texto de duas linhas um pouco maior */
+}
+
+/* Ajustes para responsividade da faixa de diferenciais */
+
+/* Telas médias (tablets, desktops menores) - ainda tenta manter em uma linha, mas reduz tamanhos */
+@media (max-width: 1100px) { /* Ajuste este breakpoint conforme o layout da sua página */
+  .diferencial-icon svg {
+    font-size: 1.8rem;
+  }
+  .diferencial-text {
+    font-size: 0.8rem;
+  }
+  .faixa-diferenciais-container {
+    gap: 8px;
+    padding: 15px 10px;
+  }
+  .diferencial-item {
+    gap: 8px;
+  }
+}
+
+/* Telas onde a quebra de linha se torna necessária */
+@media (max-width: 900px) { /* Ajuste este breakpoint conforme o layout da sua página */
+  .faixa-diferenciais-container {
+    flex-wrap: wrap; /* PERMITE A QUEBRA DE LINHA */
+    justify-content: space-around; /* Volta para space-around quando quebra */
+    gap: 20px; /* Espaço maior quando os itens quebram */
+  }
+  .diferencial-item {
+    /* Tenta colocar 2 ou 3 por linha, dependendo do espaço */
+    flex-basis: calc(33.33% - 15px); /* Exemplo para 3 por linha */
+    min-width: 160px; /* Garante uma largura mínima para cada item */
+    justify-content: flex-start;
+  }
+  /* Restaura um pouco o tamanho da fonte quando há mais espaço vertical */
+  .diferencial-icon svg {
+    font-size: 1.9rem;
+  }
+  .diferencial-text {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .diferencial-item {
+    flex-basis: calc(50% - 10px); /* Exemplo para 2 por linha */
+    min-width: 140px;
+  }
+}
+
+@media (max-width: 420px) {
+  .faixa-diferenciais-container {
+      justify-content: center; /* Para quando só cabe um por linha ou poucos na última */
+  }
+  .diferencial-item {
+    flex-basis: 100%; /* Um item por linha */
+    justify-content: center; /* Centraliza o conteúdo do item */
+  }
+  .diferencial-icon svg {
+    font-size: 1.8rem;
+  }
+  .diferencial-text {
+    font-size: 0.8rem;
+  }
+}

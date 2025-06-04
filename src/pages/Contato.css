@@ -1,0 +1,327 @@
+/* Adicione ou atualize estas variáveis no início do seu Contato.css ou em um arquivo global de variáveis */
+:root {
+  --cor-primaria-escura: #004d25; /* Verde escuro para títulos principais */
+  --cor-primaria-media: #1c8c5e; /* Verde médio para acentos, botões */
+  --cor-primaria-clara: #e8f5e9; /* Verde bem claro para fundos sutis ou hover */
+  --cor-acento-principal: #ffb700; /* Amarelo principal */
+  --cor-acento-hover: #ffc733; /* Amarelo para hover */
+
+  --cor-texto-principal: #222222; /* Para a maioria dos textos */
+  --cor-texto-secundario: #555555; /* Para textos de apoio, placeholders */
+  --cor-texto-label: #333333; /* Para labels de formulário */
+  --cor-texto-branco: #ffffff;
+
+  --cor-fundo-elemento: #ffffff; /* Branco para cards, formulário */
+  --cor-fundo-input: #fdfdfd;
+  --cor-fundo-pagina-contato: #f9fafb; /* Um cinza muito claro para o fundo geral do conteúdo de contato, se desejado */
+
+  --cor-borda-input: #d1d5db; /* Cinza claro para bordas de input */
+  --cor-borda-input-focus: var(--cor-primaria-media);
+  --cor-borda-elemento: #e5e7eb; /* Borda suave para cards */
+
+  --sombra-card: 0 4px 15px rgba(0, 0, 0, 0.06);
+  --sombra-card-hover: 0 6px 20px rgba(0, 0, 0, 0.08);
+  --sombra-input-focus: 0 0 0 3px rgba(28, 140, 94, 0.15);
+
+  --border-radius-padrao: 8px;
+  --border-radius-input: 6px;
+  --border-radius-botao: 6px;
+}
+
+/* Estilos para o conteúdo da página de contato */
+.conteudo-contato {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  /* Se quiser um fundo diferente para a área de conteúdo principal: */
+  /* background-color: var(--cor-fundo-pagina-contato); */
+  /* padding: 20px; */ /* Adicione padding aqui se quiser um espaço interno geral */
+  /* border-radius: var(--border-radius-padrao); */
+}
+
+.titulo-contato {
+  color: #004d25;
+  margin-bottom: 15px;
+  padding: 10px 0;
+  font-weight: 600;
+  font-size: 1.7rem;
+  border-bottom: 2px solid #328f62;
+}
+
+.contato-wrapper {
+  display: flex;
+  gap: 35px; /* Levemente aumentado */
+  flex-wrap: wrap;
+}
+
+/* Formulário */
+.formulario-contato {
+  flex: 1.2; /* Dar um pouco mais de espaço para o formulário se possível */
+  min-width: 320px;
+  background-color: var(--cor-fundo-elemento);
+  padding: 30px; /* Aumentado */
+  border-radius: var(--border-radius-padrao);
+  box-shadow: var(--sombra-card);
+  display: flex;
+  flex-direction: column;
+  gap: 18px; /* Ajustado */
+}
+
+.formulario-contato label {
+  font-weight: 600; /* Levemente mais suave */
+  font-size: 0.9rem;
+  color: var(--cor-texto-label);
+}
+
+.formulario-contato input,
+.formulario-contato textarea {
+  padding: 12px 15px; /* Ajustado */
+  border: 1px solid var(--cor-borda-input);
+  border-radius: var(--border-radius-input);
+  font-size: 0.95rem;
+  background-color: var(--cor-fundo-input);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+  color: var(--cor-texto-principal);
+}
+.formulario-contato input::placeholder,
+.formulario-contato textarea::placeholder {
+  color: var(--cor-texto-secundario);
+  opacity: 0.8;
+}
+
+.formulario-contato input:focus,
+.formulario-contato textarea:focus {
+  border-color: var(--cor-borda-input-focus);
+  outline: none;
+  background-color: var(--cor-fundo-elemento); /* Fundo branco ao focar */
+  box-shadow: var(--sombra-input-focus);
+}
+
+.formulario-contato textarea {
+  resize: vertical;
+  min-height: 120px; /* Altura mínima */
+}
+
+.formulario-contato button {
+  background-color: var(--cor-primaria-media);
+  color: var(--cor-texto-branco);
+  border: none;
+  border-radius: var(--border-radius-botao);
+  padding: 14px; /* Aumentado */
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  font-size: 1rem;
+  text-transform: uppercase; /* Mais profissional */
+  letter-spacing: 0.5px;
+}
+
+.formulario-contato button:hover:not(:disabled) {
+  background-color: var(--cor-primaria-escura); /* Escurece no hover */
+  transform: translateY(-1px); /* Leve elevação */
+}
+
+.formulario-contato button:disabled {
+  background-color: #cccccc;
+  color: #888888;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Lado direito */
+.lado-direito {
+  flex: 0.8; /* Ajustar proporção se necessário */
+  min-width: 280px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px; /* Aumentado */
+}
+
+/* Botões de suporte */
+.suporte {
+  display: flex;
+  flex-direction: column; /* Empilhar os botões */
+  gap: 15px;
+}
+
+.btn-suporte {
+  flex: 1;
+  background-color: var(--cor-acento-principal);
+  color: var(--cor-primaria-escura); /* Texto escuro para contraste com amarelo */
+  border: 1px solid transparent; /* Para manter o tamanho no hover */
+  border-radius: var(--border-radius-botao);
+  padding: 14px; /* Aumentado */
+  font-weight: 600;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px; /* Aumentado */
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.1s ease;
+  text-align: center;
+}
+
+.btn-suporte svg {
+  font-size: 1.1rem; /* Ajuste no tamanho do ícone */
+}
+
+.btn-suporte:hover {
+  background-color: var(--cor-acento-hover); /* Amarelo mais claro/vibrante */
+  color: var(--cor-primaria-escura);
+  transform: translateY(-1px);
+  /* Alternativa: hover com verde
+  background-color: var(--cor-primaria-clara);
+  color: var(--cor-primaria-media);
+  border-color: var(--cor-primaria-media);
+  */
+}
+
+/* Informações de contato */
+.info-contato {
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Espaço entre os info-box */
+}
+
+.info-contato .info-box {
+  display: flex;
+  align-items: flex-start; /* Ícone alinhado ao topo do texto */
+  gap: 18px; /* Espaço entre ícone e texto */
+  background-color: var(--cor-fundo-elemento);
+  padding: 20px; /* Aumentado */
+  border: 1px solid var(--cor-borda-elemento);
+  border-radius: var(--border-radius-padrao);
+  box-shadow: none; /* Removida sombra individual, menos é mais aqui */
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.info-contato .info-box:hover {
+  border-color: var(--cor-primaria-media);
+  box-shadow: var(--sombra-card); /* Sombra suave no hover */
+}
+
+.info-contato .info-box .icone-info {
+  font-size: 1.4rem; /* Aumentado */
+  color: var(--cor-primaria-media);
+  margin-top: 3px; /* Ajuste fino de alinhamento */
+  flex-shrink: 0; /* Para não encolher o ícone */
+  background-color: var(--cor-primaria-clara); /* Fundo sutil para o ícone */
+  padding: 10px;
+  border-radius: 50%; /* Círculo */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px; /* Tamanho fixo */
+  height: 40px; /* Tamanho fixo */
+}
+
+.info-contato .info-box strong {
+  display: block;
+  font-size: 1rem; /* Aumentado */
+  font-weight: 600;
+  color: var(--cor-primaria-escura);
+  margin-bottom: 4px; /* Ajustado */
+}
+
+.info-contato .info-box p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--cor-texto-secundario);
+  line-height: 1.5;
+}
+
+/* Perguntas Frequentes */
+.perguntas-frequentes {
+  margin-top: 30px; /* Ajustado */
+  background-color: var(--cor-fundo-elemento);
+  border: 1px solid var(--cor-borda-elemento);
+  padding: 30px; /* Aumentado */
+  border-radius: var(--border-radius-padrao);
+  box-shadow: var(--sombra-card);
+}
+
+.perguntas-frequentes h3 {
+  font-size: 1.5rem; /* Aumentado */
+  font-weight: 700;
+  margin-bottom: 25px; /* Aumentado */
+  color: var(--cor-primaria-escura);
+}
+
+.faq-item {
+  padding: 15px 0; /* Espaçamento vertical */
+  border-bottom: 1px solid var(--cor-borda-elemento); /* Linha divisória */
+}
+.faq-item:last-child {
+  border-bottom: none; /* Remove a borda do último item */
+  padding-bottom: 0;
+}
+.faq-item:first-child {
+  padding-top: 0;
+}
+
+.faq-item h4 {
+  font-size: 1.1rem; /* Aumentado */
+  font-weight: 600;
+  margin-bottom: 8px; /* Aumentado */
+  color: var(--cor-texto-principal);
+  display: flex; /* Para alinhar ícone se adicionar */
+  align-items: center;
+}
+
+/* Se quiser adicionar o ícone de volta via CSS (o ❓ já está no HTML) */
+/* .faq-item h4::before {
+  content: '❓';
+  margin-right: 10px;
+  font-size: 1.2rem;
+} */
+
+.faq-item p {
+  font-size: 0.95rem;
+  color: var(--cor-texto-secundario);
+  margin: 0;
+  padding-left: 0; /* Removido padding antigo, se houver ícone no h4, ele já faz o recuo */
+  line-height: 1.6;
+}
+
+/* Responsivo - Mantido como estava, pode precisar de ajustes com os novos paddings/tamanhos */
+@media (max-width: 768px) {
+  .contato-wrapper {
+    flex-direction: column;
+    gap: 25px; /* Ajustar gap para mobile */
+  }
+
+  .formulario-contato,
+  .lado-direito {
+    width: 100%;
+    flex-basis: auto; /* Resetar flex-basis */
+  }
+
+  .titulo-contato {
+    font-size: 1.7rem; /* Ajustar para telas menores */
+  }
+
+  .formulario-contato {
+    padding: 20px;
+  }
+
+  .suporte {
+    flex-direction: row; /* Botões lado a lado se couber, ou manter coluna */
+  }
+  .btn-suporte {
+    font-size: 0.9rem; /* Ajustar fonte do botão */
+    padding: 12px;
+  }
+
+  .perguntas-frequentes {
+    padding: 20px;
+  }
+  .perguntas-frequentes h3 {
+    font-size: 1.3rem;
+  }
+  .faq-item h4 {
+    font-size: 1rem;
+  }
+  .faq-item p {
+    font-size: 0.9rem;
+  }
+}
