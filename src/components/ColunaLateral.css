@@ -1,57 +1,98 @@
+/* Estilos para o componente ColunaLateral */
+
 .menu-lateral {
   width: 250px;
-  min-width: 250px;
+  min-width: 250px; /* Garante uma largura mínima para evitar que encolha demais */
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 30px; /* Espaço entre a lista de categorias e a seção de depoimentos */
 }
 
+/* --- Lista de Categorias --- */
 .lista {
   background-color: #ffffff;
   border-radius: 10px;
   padding: 20px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06); /* Sombra suave para profundidade */
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 15px; /* Espaço entre os itens da lista */
 }
 
 .titulo-categorias {
   font-size: 1.4rem;
   font-weight: 600;
   color: #333;
-  margin-bottom: 5px;
-}
-
-.lista-item {
-  text-decoration: none;
-  color: #000000;
-  font-size: 1rem;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 10px 12px;
-  border-radius: 3px;
-  transition: all 0.3s ease;
-}
-
-.lista-item:hover {
-  background-color: #e9f7f1;
-  color: #000000;
-}
-
-.icon {
-  font-size: 20px;
-  color: #328f62;
+  margin-bottom: 5px; /* Espaço abaixo do título */
 }
 
 .linha-separadora {
   height: 1px;
-  background-color: #ccc;
-  margin-bottom: 12px;
+  background-color: #ccc; /* Cor da linha divisória */
+  margin-bottom: 12px; /* Espaço abaixo da linha */
 }
 
-/* Depoimentos */
+.lista-item {
+  text-decoration: none; /* Remove sublinhado padrão de links */
+  color: #000000; /* Cor do texto padrão */
+  font-size: 1rem;
+  display: flex;
+  align-items: center; /* Alinha ícone e texto verticalmente */
+  gap: 10px; /* Espaço entre o ícone e o texto */
+  padding: 10px 12px;
+  border-radius: 3px;
+  transition: all 0.3s ease; /* Transição suave para hover e active */
+  position: relative; /* Necessário para o pseudo-elemento ::after */
+  overflow: hidden; /* Garante que a linha de underline não "vaze" */
+}
+
+.lista-item:hover {
+  background-color: #e9f7f1; /* Cor de fundo no hover */
+  color: #000000;
+}
+
+/* Estilo para o item ativo (quando a rota corresponde) */
+.active-lista-item {
+  background-color: #e9f7f1; /* Mesma cor de fundo do hover para consistência */
+  color: #000000;
+  font-weight: bold; /* Deixa o texto em negrito quando ativo */
+}
+
+/* Underline de transição no hover */
+.lista-item::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0; /* Começa sem largura (invisível) */
+  height: 2px; /* Espessura da linha */
+  background-color: #328f62; /* Cor da sua marca (verde) */
+  transition: width 0.3s ease; /* Animação da largura */
+}
+
+.lista-item:hover::after {
+  width: 100%; /* Expande para 100% no hover */
+}
+
+/* Underline para o item ATIVO */
+.active-lista-item::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%; /* Permanece com 100% de largura quando ativo */
+  height: 2px;
+  background-color: #328f62; /* Cor da sua marca */
+}
+
+
+/* Estilo dos ícones */
+.icon {
+  font-size: 20px;
+  color: #328f62; /* Cor padrão do ícone */
+}
+
+/* --- Depoimentos --- */
 .depoimentos {
   background-color: #ffffff;
   border-radius: 10px;
@@ -69,7 +110,7 @@
 .depoimentos-container {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 15px; /* Espaço entre os cards de depoimento */
 }
 
 .depoimento-card {
@@ -77,17 +118,17 @@
   padding: 15px;
   border: 1px solid #ddd;
   border-radius: 6px;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05); /* Sombra suave para os cards */
 }
 
 .depoimento-card p {
-  font-style: italic;
+  font-style: italic; /* Texto do depoimento em itálico */
   margin-bottom: 8px;
   color: #333;
 }
 
 .depoimento-card span {
   font-weight: bold;
-  color: #328f62;
+  color: #328f62; /* Cor do nome do depoente */
   font-size: 0.95rem;
 }

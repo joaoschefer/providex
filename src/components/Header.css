@@ -30,12 +30,7 @@
 .logo img {
   height: 40px; /* Sua altura original */
   transform: scale(3); /* Seu scale original - restaurado */
-  /* Adicionar transform-origin pode ajudar a controlar como o scale é aplicado */
   transform-origin: left center; /* Escala a partir da esquerda e do centro verticalmente */
-  /* ATENÇÃO: Usar 'transform: scale()' para dimensionamento pode impactar o layout
-     e a performance. Se possível, para responsividade, é melhor usar uma imagem
-     já no tamanho desejado ou controlar 'height'/'width' diretamente.
-     Vamos redefinir o 'scale' nas media queries. */
 }
 
 /* BARRA DE BUSCA - Estilo base para DESKTOP (restaurado) */
@@ -46,7 +41,6 @@
   padding: 8px 12px; /* Seu padding original */
   border-radius: 4px;
   width: 300px; /* Sua largura fixa original - restaurada */
-  /* Removido flex-grow, min-width, max-width, margin que eu havia adicionado para o base */
 }
 
 .search-icon {
@@ -59,42 +53,66 @@
   border: none;
   outline: none;
   width: 100%;
-  /* font-size não especificado, herdará (como no seu original) */
 }
 
-/* BOTÕES - Estilos base para DESKTOP (como na correção anterior) */
+/* BOTÕES - Estilos base para DESKTOP */
 .buttons {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 20px; /* Aumente este valor para mais espaço. Era 10px, agora 20px. */
   flex-shrink: 0;
 }
 
 .btn {
-  background-color: #328f62;
-  color: white;
-  padding: 8px 16px;
-  border-radius: 4px;
+  color: #333;
   text-decoration: none;
   display: flex;
   align-items: center;
   white-space: nowrap;
-  transition: background-color 0.3s ease;
+  position: relative;
+  transition: color 0.3s ease;
+  padding: 0 5px;
 }
 
 .btn-icon {
   margin-right: 8px;
   font-size: 18px;
+  color: #328f62;
 }
 
 .btn-text {
   display: inline;
-  /* font-size: 1rem; /* Exemplo, ou deixe herdar */
+}
+
+/* Efeito de underline no hover */
+.btn::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 0;
+  height: 2px;
+  background-color: #328f62;
+  transition: width 0.3s ease;
+}
+
+.btn:hover::after {
+  width: 100%;
 }
 
 .btn:hover {
-  background-color: #287a54;
+  color: #000;
 }
+
+/* NOVO: Estilo para o botão ativo */
+.btn.active-btn {
+  color: #000; /* Pode mudar a cor do texto para indicar que está ativo */
+}
+
+.btn.active-btn::after {
+  width: 100%; /* A linha permanece 100% visível quando ativo */
+}
+
 
 /* --- Responsividade --- */
 
@@ -108,29 +126,26 @@
   }
 
   .logo img {
-    transform: scale(1); /* Redefine o scale para o normal */
-    height: 45px; /* Ajusta a altura para tablets (sem o scale) */
-    /* Se 45px for muito grande/pequeno sem o scale, ajuste conforme necessário */
+    transform: scale(1);
+    height: 45px;
   }
 
   .search {
-    width: auto; /* Permite que a largura seja flexível */
-    flex-grow: 1; /* Faz a barra de busca ocupar o espaço disponível */
-    min-width: 150px; /* Largura mínima */
-    max-width: 400px; /* Largura máxima em tablets */
-    /* margin: 0 8px; /* Adiciona margens laterais se necessário */
+    width: auto;
+    flex-grow: 1;
+    min-width: 150px;
+    max-width: 400px;
   }
   .search-icon {
-    font-size: 18px; /* Pode ajustar o tamanho do ícone se quiser */
+    font-size: 18px;
   }
   .search input {
-    font-size: 0.9rem; /* Ajusta o tamanho da fonte do input */
+    font-size: 0.9rem;
   }
-
 
   /* Botões em tablets */
   .btn {
-    padding: 7px 10px;
+    padding: 0 5px;
   }
   .btn-icon {
     font-size: 15px;
@@ -138,6 +153,9 @@
   }
   .btn-text {
     font-size: 0.85rem;
+  }
+  .btn::after {
+    bottom: -2px;
   }
 }
 
@@ -151,13 +169,13 @@
   }
 
   .logo img {
-    transform: scale(1); /* Garante que o scale está redefinido */
+    transform: scale(1);
     height: 40px;
   }
-  
+
   .search {
-    flex-grow: 1; 
-    min-width: 100px; /* Pode ser menor ainda */
+    flex-grow: 1;
+    min-width: 100px;
     max-width: 250px;
     padding: 7px 9px;
   }
@@ -165,14 +183,12 @@
     font-size: 16px;
   }
   .search input::placeholder {
-      font-size: 0.8rem; 
+    font-size: 0.8rem;
   }
-
 
   .buttons {
     gap: 8px;
   }
-  /* Botões em mobile (apenas ícones) */
   .btn {
     padding: 8px;
   }
@@ -180,62 +196,61 @@
     display: none;
   }
   .btn-icon {
-    margin-right: 0; 
+    margin-right: 0;
     font-size: 18px;
+  }
+  .btn::after {
+    display: none;
   }
 }
 
 /* Extra small devices (portrait phones, e.g., <= 576px) */
 @media (max-width: 576px) {
   .header {
-    padding: 8px; 
+    padding: 8px;
   }
   .header-container {
-     gap: 5px; 
+    gap: 5px;
   }
 
   .logo img {
-    transform: scale(1); /* Garante que o scale está redefinido */
-    height: 35px; 
+    transform: scale(1);
+    height: 35px;
   }
 
-  /* Barra de busca apenas com ícone */
   .search {
-    width: auto; /* Remove qualquer largura fixa ou flex */
-    flex-grow: 0; /* Não permite crescer */
-    background-color: transparent; 
+    width: auto;
+    flex-grow: 0;
+    background-color: transparent;
     border: none;
-    min-width: auto; /* Tamanho do conteúdo (ícone) */
+    min-width: auto;
     padding: 6px;
-    margin: 0; /* Remove margens laterais */
+    margin: 0;
   }
   .search input {
-    display: none; /* Esconde o campo de input */
+    display: none;
   }
   .search-icon {
-     color: #328f62; 
-     margin-right: 0;
-     font-size: 20px; /* Ícone de busca pode manter um bom tamanho */
+    color: #328f62;
+    margin-right: 0;
+    font-size: 20px;
   }
 
-  /* Botões em mobile menor (apenas ícones) */
   .btn {
-    padding: 7px; 
+    padding: 7px;
   }
   .btn-icon {
-    font-size: 18px; 
+    font-size: 18px;
   }
 }
 
-/* ... seus estilos existentes do Header ... */
-
 /* Ícone do Hamburger */
 .hamburger-icon {
-  display: none; /* Escondido no desktop por padrão */
-  font-size: 24px; /* Tamanho do ícone */
-  color: #333; /* Cor do ícone */
+  display: none;
+  font-size: 24px;
+  color: #333;
   cursor: pointer;
-  z-index: 1100; /* Acima do menu mobile se o menu não for filho direto */
+  z-index: 1100;
 }
 
 /* Menu Hambúrguer Dropdown */
@@ -243,15 +258,12 @@
   display: flex;
   flex-direction: column;
   position: absolute;
-  top: 100%; /* Logo abaixo do header. Ajuste se o header não tiver height fixo ou padding consistente */
-  /* Se o seu .header tem padding, top: calc(altura-do-header) pode ser melhor,
-     ou se o header tiver uma altura fixa, use essa altura.
-     Ex: se header tem 65px de altura, top: 65px; */
+  top: 100%;
   left: 0;
   right: 0;
-  background-color: #f8f9fa; /* Cor de fundo do menu */
+  background-color: #f8f9fa;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  z-index: 1050; /* Abaixo do ícone de fechar, se estiver sobreposto */
+  z-index: 1050;
   padding: 15px 0;
   border-top: 1px solid #e0e0e0;
 }
@@ -272,19 +284,19 @@
   gap: 12px;
   padding: 12px 20px;
   text-decoration: none;
-  color: #333; /* Cor do texto dos links */
+  color: #333;
   font-size: 1rem;
   transition: background-color 0.2s ease;
 }
 
 .mobile-menu-item:hover {
-  background-color: #e9ecef; /* Cor de fundo ao passar o mouse */
+  background-color: #e9ecef;
   color: #000;
 }
 
 .mobile-menu-icon {
   font-size: 18px;
-  color: #328f62; /* Cor dos ícones no menu */
+  color: #328f62;
 }
 
 .mobile-menu-separator {
@@ -293,62 +305,30 @@
   margin: 10px 20px;
 }
 
+/* NOVO: Estilo para o item do menu mobile ativo */
+.mobile-menu-item.active-mobile-item {
+    background-color: #e9ecef; /* Pode mudar o fundo ou cor do texto */
+    color: #000;
+    font-weight: 600; /* Deixa o texto mais forte */
+}
+/* Se você quiser uma linha para os itens do menu mobile ativo, adicione um ::after aqui também */
+
 
 /* Responsividade para mostrar/esconder elementos */
-
-/* Esconder botões de desktop e mostrar hambúrguer em telas menores */
-/* Ajuste o breakpoint (768px) conforme o seu design */
-@media (max-width: 768px) { /* Mesmo breakpoint onde os textos dos botões são escondidos */
-  .buttons.desktop-buttons .btn-text {
-    /* Textos já são escondidos por regras anteriores, mas vamos garantir que os botões em si
-       sejam escondidos se o hamburger for a principal navegação para ações também */
-    /* display: none; /* Isso já acontece */
-  }
-  
-  /* Se você quiser esconder completamente os botões de desktop e usar só o hamburger */
+@media (max-width: 768px) {
   .buttons.desktop-buttons {
-     display: none;
-  }
-  /* Ou, se você quiser manter os ícones de Carrinho e Entrar ao lado do hamburger: */
-  /*
-  .buttons.desktop-buttons .btn:not(:nth-child(1)) { // Esconde o primeiro botão (Contato)
-      display: flex; 
-  }
-  .buttons.desktop-buttons .btn:nth-child(1) {
-      display: none;
-  }
-  .buttons.desktop-buttons .btn-text {
-      display: none; // Garante que só ícones apareçam
-  }
-  .buttons.desktop-buttons .btn-icon {
-      margin-right: 0;
-  }
-  */
-
-  .hamburger-icon {
-    display: block; /* Mostra o ícone do hambúrguer */
-  }
-
-  /* Ajusta a barra de busca se necessário para dar espaço ao hambúrguer */
-  .search {
-    /* Se o search já é só ícone nessa tela, pode não precisar de muito ajuste */
-    /* Exemplo: flex-grow: 0.5; ou max-width ajustado */
-  }
-}
-
-/* Em telas muito pequenas, se o menu hambúrguer for a única navegação */
-@media (max-width: 576px) {
-  .buttons.desktop-buttons {
-    display: none; /* Esconde botões de desktop */
-  }
-  .search {
-    /* O search já se torna apenas um ícone nesta resolução pelos estilos anteriores */
+    display: none;
   }
   .hamburger-icon {
     display: block;
   }
 }
 
-/* Certifique-se que os estilos base do .search, .logo, etc.,
-   permitam que o .hamburger-icon e .buttons (se visíveis) se alinhem corretamente.
-   O .header-container com justify-content: space-between; deve ajudar. */
+@media (max-width: 576px) {
+  .buttons.desktop-buttons {
+    display: none;
+  }
+  .hamburger-icon {
+    display: block;
+  }
+}

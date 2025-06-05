@@ -1,6 +1,6 @@
 // src/components/ColunaLateral.jsx
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import {
   FaLaptop,
   FaMicrochip,
@@ -11,9 +11,11 @@ import {
 } from "react-icons/fa";
 import "./ColunaLateral.css";
 
+// src/components/ColunaLateral.jsx
 function ColunaLateral() {
-  const desktopBreakpoint = 769; // Defina o breakpoint (ex: visível acima de 768px)
+  const desktopBreakpoint = 769;
   const [isDesktopView, setIsDesktopView] = useState(window.innerWidth >= desktopBreakpoint);
+  const location = useLocation();
 
   useEffect(() => {
     const handleResize = () => {
@@ -21,50 +23,77 @@ function ColunaLateral() {
     };
 
     window.addEventListener('resize', handleResize);
-    handleResize(); // Verifica o tamanho inicial
+    handleResize();
 
-    return () => window.removeEventListener('resize', handleResize); // Limpeza
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  // Se não for a visualização desktop, o componente não renderiza nada
   if (!isDesktopView) {
     return null;
   }
 
-  // Conteúdo original da ColunaLateral (renderizado apenas em desktop)
+  // Função para determinar se um link de categoria deve estar ativo
+  const isCategoryActive = (categoryPath) => {
+    // Verifica se o pathname atual começa com o caminho da categoria ou é exatamente o caminho
+    return location.pathname.startsWith(categoryPath);
+  };
+
   return (
     <div className="menu-lateral">
       <div className="lista">
         <h2 className="titulo-categorias">Categorias</h2>
         <div className="linha-separadora"></div>
-        <Link to="/categoria/Placas de Desenvolvimento" className="lista-item">
+        <NavLink
+          to="/categoria/Placas de Desenvolvimento"
+          className={({ isActive }) => (isActive ? "lista-item active-lista-item" : "lista-item")}
+        >
           <FaLaptop className="icon" /> Placas de Dev
-        </Link>
-        {/* ... Mantenha todos os seus links de categoria aqui ... */}
-        <Link to="/categoria/Módulos de Comunicação" className="lista-item">
+        </NavLink>
+        <NavLink
+          to="/categoria/Módulos de Comunicação"
+          className={({ isActive }) => (isActive ? "lista-item active-lista-item" : "lista-item")}
+        >
           <FaMicrochip className="icon" /> Módulos
-        </Link>
-        <Link to="/categoria/Displays" className="lista-item">
+        </NavLink>
+        <NavLink
+          to="/categoria/Displays"
+          className={({ isActive }) => (isActive ? "lista-item active-lista-item" : "lista-item")}
+        >
           <FaWrench className="icon" /> Displays
-        </Link>
-        <Link to="/categoria/Sensores" className="lista-item">
+        </NavLink>
+        <NavLink
+          to="/categoria/Sensores"
+          className={({ isActive }) => (isActive ? "lista-item active-lista-item" : "lista-item")}
+        >
           <FaTools className="icon" /> Sensores
-        </Link>
-        <Link to="/categoria/Acessórios" className="lista-item">
+        </NavLink>
+        <NavLink
+          to="/categoria/Acessórios"
+          className={({ isActive }) => (isActive ? "lista-item active-lista-item" : "lista-item")}
+        >
           <FaBolt className="icon" /> Acessórios
-        </Link>
-        <Link to="/categoria/Componentes Eletrônicos" className="lista-item">
+        </NavLink>
+        <NavLink
+          to="/categoria/Componentes Eletrônicos"
+          className={({ isActive }) => (isActive ? "lista-item active-lista-item" : "lista-item")}
+        >
           <FaBolt className="icon" /> Componentes
-        </Link>
-        <Link to="/categoria/Cabos" className="lista-item">
+        </NavLink>
+        <NavLink
+          to="/categoria/Cabos"
+          className={({ isActive }) => (isActive ? "lista-item active-lista-item" : "lista-item")}
+        >
           <FaBolt className="icon" /> Cabos
-        </Link>
-        <Link to="/categoria/todos" className="lista-item">
+        </NavLink>
+        <NavLink
+          to="/categoria/todos"
+          className={({ isActive }) => (isActive ? "lista-item active-lista-item" : "lista-item")}
+          end // 'end' garante que só será ativo se o path for EXATAMENTE "/categoria/todos"
+        >
           <FaCog className="icon" /> Todos
-        </Link>
+        </NavLink>
       </div>
 
-      {/* A seção de Depoimentos (se você quiser mantê-la apenas no desktop) */}
       <div className="depoimentos">
         <h2 className="titulo-depoimentos">Depoimentos</h2>
         <div className="linha-separadora"></div>
@@ -88,3 +117,4 @@ function ColunaLateral() {
 }
 
 export default ColunaLateral;
+

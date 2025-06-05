@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import {
   FaSearch,
   FaShoppingCart,
   FaUser,
   FaAddressBook,
-  // Ícones para o menu hambúrguer e categorias
   FaLaptop,
   FaMicrochip,
   FaWrench,
@@ -18,7 +17,6 @@ import {
 import "./Header.css";
 import logo from "../assets/logo-providex.png";
 
-// Definição das categorias (como mostrado acima)
 const categoriesForMenu = [
   { to: "/categoria/Placas de Desenvolvimento", icon: FaLaptop, label: "Placas de Dev" },
   { to: "/categoria/Módulos de Comunicação", icon: FaMicrochip, label: "Módulos" },
@@ -27,7 +25,7 @@ const categoriesForMenu = [
   { to: "/categoria/Acessórios", icon: FaBolt, label: "Acessórios" },
   { to: "/categoria/Componentes Eletrônicos", icon: FaBolt, label: "Componentes" },
   { to: "/categoria/Cabos", icon: FaBolt, label: "Cabos" },
-  { to: "/categoria/todos", icon: FaCog, label: "Todos os Produtos" }, // Label um pouco mais descritivo
+  { to: "/categoria/todos", icon: FaCog, label: "Todos os Produtos" },
 ];
 
 function Header() {
@@ -38,7 +36,6 @@ function Header() {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  // Fecha o menu quando a rota muda
   useEffect(() => {
     setIsMenuOpen(false);
   }, [location]);
@@ -47,9 +44,9 @@ function Header() {
     <header className="header">
       <div className="header-container">
         <div className="logo">
-          <Link to="/">
+          <NavLink to="/">
             <img src={logo} alt="Logo Providex" />
-          </Link>
+          </NavLink>
         </div>
 
         <div className="search">
@@ -57,43 +54,63 @@ function Header() {
           <input type="text" placeholder="Buscar..." />
         </div>
 
-        {/* Botões existentes no desktop */}
         <div className="buttons desktop-buttons">
-          <Link to="/contato" className="btn">
+          {/* CORREÇÃO AQUI: Use className como uma função de callback */}
+          <NavLink
+            to="/contato"
+            className={({ isActive }) => (isActive ? "btn active-btn" : "btn")}
+          >
             <FaAddressBook className="btn-icon" /> <span className="btn-text">Contato</span>
-          </Link>
-          <Link to="/carrinho" className="btn">
+          </NavLink>
+          <NavLink
+            to="/carrinho"
+            className={({ isActive }) => (isActive ? "btn active-btn" : "btn")}
+          >
             <FaShoppingCart className="btn-icon" /> <span className="btn-text">Carrinho</span>
-          </Link>
-          <Link to="/entrar" className="btn">
+          </NavLink>
+          <NavLink
+            to="/entrar"
+            className={({ isActive }) => (isActive ? "btn active-btn" : "btn")}
+          >
             <FaUser className="btn-icon" /> <span className="btn-text">Entrar</span>
-          </Link>
+          </NavLink>
         </div>
 
-        {/* Ícone do Hamburger para mobile/tablet */}
         <div className="hamburger-icon" onClick={toggleMenu}>
           {isMenuOpen ? <FaTimes /> : <FaBars />}
         </div>
       </div>
 
-      {/* Menu Hambúrguer Dropdown */}
       {isMenuOpen && (
         <nav className="mobile-menu">
           <h3 className="mobile-menu-title">Categorias</h3>
           {categoriesForMenu.map((category) => (
-            <Link key={category.to} to={category.to} className="mobile-menu-item" onClick={() => setIsMenuOpen(false)}>
+            <NavLink
+              key={category.to}
+              to={category.to}
+              // CORREÇÃO AQUI para itens do menu mobile também
+              className={({ isActive }) => (isActive ? "mobile-menu-item active-mobile-item" : "mobile-menu-item")}
+              onClick={() => setIsMenuOpen(false)}
+            >
               <category.icon className="mobile-menu-icon" />
               {category.label}
-            </Link>
+            </NavLink>
           ))}
-          {/* Você pode adicionar outros links aqui se necessário, como Contato, Entrar, etc. para mobile */}
           <div className="mobile-menu-separator"></div>
-          <Link to="/contato" className="mobile-menu-item" onClick={() => setIsMenuOpen(false)}>
+          <NavLink
+            to="/contato"
+            className={({ isActive }) => (isActive ? "mobile-menu-item active-mobile-item" : "mobile-menu-item")}
+            onClick={() => setIsMenuOpen(false)}
+          >
             <FaAddressBook className="mobile-menu-icon" /> Contato
-          </Link>
-          <Link to="/entrar" className="mobile-menu-item" onClick={() => setIsMenuOpen(false)}>
+          </NavLink>
+          <NavLink
+            to="/entrar"
+            className={({ isActive }) => (isActive ? "mobile-menu-item active-mobile-item" : "mobile-menu-item")}
+            onClick={() => setIsMenuOpen(false)}
+          >
             <FaUser className="mobile-menu-icon" /> Entrar
-          </Link>
+          </NavLink>
         </nav>
       )}
     </header>
