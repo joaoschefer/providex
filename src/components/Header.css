@@ -261,11 +261,14 @@
   top: 100%;
   left: 0;
   right: 0;
+  max-height: 80vh; /* define uma altura máxima */
+  overflow-y: auto; /* ativa rolagem vertical */
   background-color: #f8f9fa;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   z-index: 1050;
   padding: 15px 0;
   border-top: 1px solid #e0e0e0;
+  scroll-behavior: smooth;
 }
 
 .mobile-menu-title {
@@ -332,3 +335,71 @@
     display: block;
   }
 }
+
+/* MENU DE USUÁRIO (dropdown no desktop) */
+.dropdown-user {
+  position: relative;
+}
+
+.user-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  color: #333;
+  font-size: 1rem;
+  padding: 0;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: calc(100% + 12px); /* POSICIONA MAIS PARA BAIXO */
+  right: 0;
+  background-color: white;
+  min-width: 160px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1200;
+  padding: 10px;
+  border-radius: 4px;
+  flex-direction: column;
+}
+
+/* SETA INDICANDO O DROPDOWN */
+.dropdown-content::before {
+  content: "";
+  position: absolute;
+  top: -8px;
+  right: 18px;
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 8px solid white;
+}
+
+/* Mostrar o menu ao passar o mouse */
+.dropdown-user:hover .dropdown-content {
+  display: flex;
+}
+
+/* Estilo dos links e botões do menu */
+.dropdown-content a,
+.dropdown-content button {
+  text-align: left;
+  padding: 8px;
+  background: none;
+  border: none;
+  width: 100%;
+  color: #333;
+  text-decoration: none;
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+
+.dropdown-content a:hover,
+.dropdown-content button:hover {
+  background-color: #f0f0f0;
+}
+

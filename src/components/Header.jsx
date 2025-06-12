@@ -30,6 +30,8 @@ const categoriesForMenu = [
 
 function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(true); // Simula login
+  const userName = "João"; // Nome do usuário simulado
   const location = useLocation();
 
   const toggleMenu = () => {
@@ -55,25 +57,39 @@ function Header() {
         </div>
 
         <div className="buttons desktop-buttons">
-          {/* CORREÇÃO AQUI: Use className como uma função de callback */}
           <NavLink
             to="/contato"
             className={({ isActive }) => (isActive ? "btn active-btn" : "btn")}
           >
             <FaAddressBook className="btn-icon" /> <span className="btn-text">Contato</span>
           </NavLink>
+
           <NavLink
             to="/carrinho"
             className={({ isActive }) => (isActive ? "btn active-btn" : "btn")}
           >
             <FaShoppingCart className="btn-icon" /> <span className="btn-text">Carrinho</span>
           </NavLink>
-          <NavLink
-            to="/entrar"
-            className={({ isActive }) => (isActive ? "btn active-btn" : "btn")}
-          >
-            <FaUser className="btn-icon" /> <span className="btn-text">Entrar</span>
-          </NavLink>
+
+          {isLoggedIn ? (
+            <div className="dropdown-user">
+              <button className="btn user-btn">
+                <FaUser className="btn-icon" />
+                <span className="btn-text">{userName}</span>
+              </button>
+              <div className="dropdown-content">
+                <NavLink to="/minha-conta">Minha Conta</NavLink>
+                <button onClick={() => setIsLoggedIn(false)}>Sair</button>
+              </div>
+            </div>
+          ) : (
+            <NavLink
+              to="/entrar"
+              className={({ isActive }) => (isActive ? "btn active-btn" : "btn")}
+            >
+              <FaUser className="btn-icon" /> <span className="btn-text">Entrar</span>
+            </NavLink>
+          )}
         </div>
 
         <div className="hamburger-icon" onClick={toggleMenu}>
@@ -88,7 +104,6 @@ function Header() {
             <NavLink
               key={category.to}
               to={category.to}
-              // CORREÇÃO AQUI para itens do menu mobile também
               className={({ isActive }) => (isActive ? "mobile-menu-item active-mobile-item" : "mobile-menu-item")}
               onClick={() => setIsMenuOpen(false)}
             >
@@ -96,6 +111,7 @@ function Header() {
               {category.label}
             </NavLink>
           ))}
+
           <div className="mobile-menu-separator"></div>
           <NavLink
             to="/contato"
@@ -104,13 +120,37 @@ function Header() {
           >
             <FaAddressBook className="mobile-menu-icon" /> Contato
           </NavLink>
-          <NavLink
-            to="/entrar"
-            className={({ isActive }) => (isActive ? "mobile-menu-item active-mobile-item" : "mobile-menu-item")}
-            onClick={() => setIsMenuOpen(false)}
-          >
-            <FaUser className="mobile-menu-icon" /> Entrar
-          </NavLink>
+
+          {isLoggedIn ? (
+            <>
+              <div className="mobile-menu-separator"></div>
+              <h3 className="mobile-menu-title">Minha Conta</h3>
+              <NavLink
+                to="/minha-conta"
+                className="mobile-menu-item"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                <FaUser className="mobile-menu-icon" /> Minha Conta
+              </NavLink>
+              <button
+                className="mobile-menu-item"
+                onClick={() => {
+                  setIsLoggedIn(false);
+                  setIsMenuOpen(false);
+                }}
+              >
+                Sair
+              </button>
+            </>
+          ) : (
+            <NavLink
+              to="/entrar"
+              className={({ isActive }) => (isActive ? "mobile-menu-item active-mobile-item" : "mobile-menu-item")}
+              onClick={() => setIsMenuOpen(false)}
+            >
+              <FaUser className="mobile-menu-icon" /> Entrar
+            </NavLink>
+          )}
         </nav>
       )}
     </header>

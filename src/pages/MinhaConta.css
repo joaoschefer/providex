@@ -1,0 +1,154 @@
+.minha-conta-layout {
+  display: flex;
+  max-width: 1200px;
+  width: 100%;
+  margin: 100px auto 40px;
+  padding: 0 20px;
+  gap: 30px;
+}
+
+.sidebar-conta {
+  width: 250px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  padding: 20px;
+}
+
+.sidebar-conta h3 {
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+  color: #333;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 8px;
+}
+
+.sidebar-conta ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-conta li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px;
+  color: #328f62;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+
+.sidebar-conta li:hover {
+  background-color: #f0f0f0;
+  color: #287a51;
+}
+
+.conteudo-conta {
+  flex: 1;
+  background: #f9f9f9;
+  padding: 20px 25px;
+  border-radius: 8px;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.05);
+}
+
+.conteudo-conta h2 {
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.conteudo-conta input {
+  display: block;
+  margin: 8px 0;
+  padding: 8px;
+  width: 100%;
+  max-width: 400px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.btn-conta {
+  margin-top: 15px;
+  padding: 8px 14px;
+  background-color: #328f62;
+  border: none;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn-conta:hover {
+  background-color: #287a51;
+}
+
+/* FAVORITOS */
+.lista-favoritos {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.card-favorito {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  background: white;
+  padding: 12px 15px;
+  border-radius: 6px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+}
+
+.card-favorito img {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+/* PEDIDOS */
+.lista-pedidos {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.card-pedido {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  background: white;
+  padding: 15px;
+  border-radius: 6px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+}
+
+.card-pedido strong {
+  color: #333;
+  font-size: 1.05rem;
+}
+
+.card-pedido p {
+  margin: 4px 0;
+  color: #555;
+}
+
+/* Status colorido */
+.status-entregue {
+  color: green;
+  font-weight: bold;
+}
+
+.status-em-andamento,
+.status-em-separação {
+  color: orange;
+  font-weight: bold;
+}
+
+.status-cancelado {
+  color: red;
+  font-weight: bold;
+}

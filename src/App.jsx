@@ -11,6 +11,7 @@ import Carrinho from "./pages/Carrinho";
 // import Produtos from "./pages/Produtos"; // NÃO PRECISA MAIS DESTE
 import DetalheProduto from "./pages/DetalheProduto";
 import PaginaCategoria from "./pages/PaginaCategoria"; // JÁ DEVE ESTAR IMPORTADO
+import MinhaConta from "./pages/MinhaConta";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <Route path="/carrinho" element={<Carrinho />} />
         <Route path="/categoria/:nomeCategoria" element={<PaginaCategoria />} />
         <Route path="/produto/:id" element={<DetalheProduto />} />
+        <Route path="/minha-conta" element={<MinhaConta />} />
       </Routes>
     </BrowserRouter>
   );
