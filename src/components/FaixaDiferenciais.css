@@ -10,7 +10,7 @@
   align-items: center;
   background-color: var(--cor-branco-puro);
   padding: 18px 15px;
-  border-bottom: 2px solid #000000; /* Cor roxa da borda inferior */
+  border-bottom: 2px solid #4a4a4a;
   margin-bottom: 25px;
   width: 100%;
   box-sizing: border-box;
@@ -31,7 +31,7 @@
 
 .diferencial-icon svg {
   font-size: 2rem; /* << AUMENTADO */
-  color: #000000; /* Cor roxa dos ícones */
+  color: #4a4a4a;
   flex-shrink: 0;
 }
 

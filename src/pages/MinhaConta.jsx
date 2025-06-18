@@ -62,43 +62,53 @@ function MinhaConta() {
         return (
           <>
             <h2>Informações Pessoais</h2>
-            <div className="dados-pessoais">
-              <div className="lado-esquerdo">
-                <img src={fotoPerfil} alt="Foto de perfil" />
+            <div className="dados-pessoais-container">
+              <div className="perfil-header">
+                <img src={fotoPerfil} alt="Foto de perfil" className="foto-perfil" />
+                <h3>João da Silva</h3>
+                <p>joao@email.com</p>
+                <span className="badge-nivel-cliente">Ouro ⭐</span>
               </div>
 
-              <div className="lado-direito">
-                <div className="grupo-info">
+              <div className="cards-info-wrapper">
+                <div className="info-card">
+                  <h4>Dados Básicos</h4>
                   <p>
                     <strong>Nome:</strong> João da Silva
                   </p>
                   <p>
                     <strong>E-mail:</strong> joao@email.com
                   </p>
-                  <p>
-                    <strong>Endereço:</strong> Rua das Inovações, 123 – São
-                    Paulo/SP
-                  </p>
-                  <p>
-                    <strong>Nível do Cliente:</strong>{" "}
-                    <span className="nivel-ouro">Ouro ⭐</span>
-                  </p>
                 </div>
 
-                <div className="botoes-conta">
-                  <button className="btn-conta">Editar Dados</button>
-                  <button className="btn-conta btn-excluir">
-                    Excluir Conta
-                  </button>
+                <div className="info-card">
+                  <h4>Endereço de Entrega</h4>
+                  <p>Rua das Inovações, 123</p>
+                  <p>Bairro da Tecnologia - São Paulo/SP</p>
+                  <p>CEP: 01234-567</p>
                 </div>
+              </div>
 
-                <div className="form-senha">
-                  <h4>Alterar Senha</h4>
-                  <input type="password" placeholder="Senha atual" />
-                  <input type="password" placeholder="Nova senha" />
-                  <input type="password" placeholder="Confirmar nova senha" />
-                  <button className="btn-conta">Salvar Senha</button>
+              <div className="acoes-conta">
+                <button className="btn-primario">Editar Dados</button>
+                <button className="btn-secundario-perigo">Excluir Conta</button>
+              </div>
+
+              <div className="form-senha-card">
+                <h4>Alterar Senha</h4>
+                <div className="input-group">
+                  <input type="password" placeholder=" " id="senhaAtual" />
+                  <label htmlFor="senhaAtual">Senha atual</label>
                 </div>
+                <div className="input-group">
+                  <input type="password" placeholder=" " id="novaSenha" />
+                  <label htmlFor="novaSenha">Nova senha</label>
+                </div>
+                <div className="input-group">
+                  <input type="password" placeholder=" " id="confirmarSenha" />
+                  <label htmlFor="confirmarSenha">Confirmar nova senha</label>
+                </div>
+                <button className="btn-primario">Salvar Senha</button>
               </div>
             </div>
 
@@ -128,7 +138,7 @@ function MinhaConta() {
                     <p>
                       Status:{" "}
                       <span
-                        className={`status-${pedido.status
+                        className={`status-tag status-${pedido.status
                           .toLowerCase()
                           .replace(/ /g, "-")}`}
                       >
@@ -137,7 +147,7 @@ function MinhaConta() {
                     </p>
                     <p>Total: {pedido.total}</p>
                   </div>
-                  <button className="btn-conta">Ver Detalhes</button>
+                  <button className="btn-primario">Ver Detalhes</button>
                 </div>
               ))}
             </div>
@@ -156,7 +166,7 @@ function MinhaConta() {
                   <div>
                     <h4>{prod.nome}</h4>
                     <p>{prod.preco}</p>
-                    <a href={`/produto/${prod.id}`} className="btn-conta">
+                    <a href={`/produto/${prod.id}`} className="btn-primario">
                       Ver Produto
                     </a>
                   </div>

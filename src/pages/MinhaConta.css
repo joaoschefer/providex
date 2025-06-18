@@ -1,262 +1,518 @@
+:root {
+    /* Cores atualizadas */
+    --cor-primaria: #328f62; /* Verde principal */
+    --cor-primaria-hover: #287a51; /* Verde mais escuro para hover */
+    --cor-fundo-claro: #f8f9fa; /* Fundo suave */
+    --cor-borda: #e0e0e0; /* Bordas sutis */
+    --cor-texto-escuro: #343a40; /* Texto principal escuro */
+    --cor-texto-claro: #6c757d; /* Texto secundário / descrições */
+    --cor-perigo: #dc3545; /* Vermelho para ações perigosas */
+    --cor-perigo-hover: #c82333;
+    --cor-ouro: #d4af37; /* Cor do nível Ouro */
+    --sombra-card: 0 4px 12px rgba(0, 0, 0, 0.08); /* Sombra mais suave */
+    --borda-raio-padrao: 8px; /* Raio de borda padrão para cards/elementos */
+    --borda-raio-input: 6px; /* Raio de borda para inputs */
+}
+
+body {
+    color: var(--cor-texto-escuro);
+    background-color: var(--cor-fundo-claro);
+}
+
 .minha-conta-layout {
-  display: flex;
-  max-width: 1200px;
-  width: 100%;
-  margin: 100px auto 40px;
-  padding: 0 20px;
-  gap: 30px;
+    display: flex;
+    max-width: 1200px;
+    width: 100%;
+    margin: 100px auto 40px;
+    padding: 0 20px;
+    gap: 30px;
 }
 
 .sidebar-conta {
-  width: 250px;
-  background: #fff;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-  padding: 20px;
+    width: 250px;
+    background: #fff;
+    border-radius: var(--borda-raio-padrao);
+    box-shadow: var(--sombra-card);
+    padding: 20px;
 }
 
 .sidebar-conta h3 {
-  font-size: 1.2rem;
-  margin-bottom: 15px;
-  color: #333;
-  border-bottom: 1px solid #ccc;
-  padding-bottom: 8px;
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    color: var(--cor-texto-escuro);
+    border-bottom: 1px solid var(--cor-borda);
+    padding-bottom: 10px;
+    font-weight: 600;
 }
 
 .sidebar-conta ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
 .sidebar-conta li {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 12px;
-  color: #328f62;
-  cursor: pointer;
-  border-radius: 4px;
-  transition: background 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px;
+    color: var(--cor-primaria);
+    cursor: pointer;
+    border-radius: var(--borda-raio-padrao);
+    transition: background 0.2s, color 0.2s;
+    font-weight: 500;
 }
 
 .sidebar-conta li:hover {
-  background-color: #f0f0f0;
-  color: #287a51;
+    background-color: #eaf7f0; /* Um verde bem suave para hover */
+    color: var(--cor-primaria-hover);
 }
 
+/* Estilo para o item ativo na sidebar - Adicionado */
+.sidebar-conta li.active {
+    background-color: var(--cor-primaria);
+    color: white;
+}
+
+.sidebar-conta li.active svg {
+    color: white;
+}
+
+
 .conteudo-conta {
-  flex: 1;
-  background: #f9f9f9;
-  padding: 20px 25px;
-  border-radius: 8px;
-  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.05);
+    flex: 1;
+    background: #fff; /* Fundo branco para o conteúdo */
+    padding: 30px 35px;
+    border-radius: var(--borda-raio-padrao);
+    box-shadow: var(--sombra-card);
 }
 
 .conteudo-conta h2 {
-  color: #333;
-  margin-bottom: 10px;
+    color: var(--cor-texto-escuro);
+    margin-bottom: 25px;
+    font-size: 1.8rem;
+    font-weight: 600;
+    text-align: center;
 }
 
-.conteudo-conta input {
-  display: block;
-  margin: 8px 0;
-  padding: 8px;
-  width: 100%;
-  max-width: 400px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+/* Botões Globais */
+.btn-primario, .btn-secundario-perigo {
+    padding: 10px 18px;
+    border: none;
+    border-radius: var(--borda-raio-padrao);
+    cursor: pointer;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    text-decoration: none; /* Para links que agem como botão */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
 }
 
-.btn-conta {
-  margin-top: 15px;
-  padding: 8px 14px;
-  background-color: #328f62;
-  border: none;
-  color: white;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 0.95rem;
-  transition: all 0.3s ease;
+.btn-primario {
+    background-color: var(--cor-primaria);
+    color: white;
 }
 
-.btn-conta:hover {
-  background-color: #287a51;
+.btn-primario:hover {
+    background-color: var(--cor-primaria-hover);
 }
+
+.btn-secundario-perigo {
+    background-color: transparent;
+    color: var(--cor-perigo);
+    border: 1px solid var(--cor-perigo);
+}
+
+.btn-secundario-perigo:hover {
+    background-color: var(--cor-perigo);
+    color: white;
+}
+
 
 /* FAVORITOS */
 .lista-favoritos {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  margin-top: 20px;
+    display: grid; /* Usando grid para layout responsivo */
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* 280px min width */
+    gap: 20px;
+    margin-top: 20px;
 }
 
 .card-favorito {
-  display: flex;
-  gap: 15px;
-  align-items: center;
-  background: white;
-  padding: 12px 15px;
-  border-radius: 6px;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    background: white;
+    padding: 15px;
+    border-radius: var(--borda-raio-padrao);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); /* Sombra mais leve */
+    transition: transform 0.2s ease-in-out;
+}
+
+.card-favorito:hover {
+    transform: translateY(-3px);
 }
 
 .card-favorito img {
-  width: 100px;
-  height: 100px;
-  object-fit: contain;
-  border: 1px solid #ddd;
-  border-radius: 4px;
+    width: 90px;
+    height: 90px;
+    object-fit: contain;
+    border: 1px solid var(--cor-borda);
+    border-radius: var(--borda-raio-input);
+    padding: 5px; /* Espaçamento interno da imagem */
 }
 
 .card-favorito > div {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 1;
 }
 
 .card-favorito h4 {
-  margin: 0 0 6px;
-  font-size: 1rem;
-  color: #222;
+    margin: 0 0 8px;
+    font-size: 1.1rem;
+    color: var(--cor-texto-escuro);
+    font-weight: 600;
 }
 
 .card-favorito p {
-  margin: 0 0 10px;
-  font-weight: bold;
-  color: #444;
+    margin: 0 0 12px;
+    font-weight: bold;
+    color: var(--cor-primaria); /* Preço com a cor primária */
+    font-size: 1rem;
 }
 
-.card-favorito .btn-conta {
-  align-self: flex-start;
-  margin-top: 0;
+.card-favorito .btn-primario {
+    align-self: flex-start;
+    margin-top: 0;
+    font-size: 0.85rem;
+    padding: 7px 12px;
 }
 
 /* PEDIDOS */
 .lista-pedidos {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
 }
 
 .card-pedido {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  background: white;
-  padding: 15px;
-  border-radius: 6px;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Alinha o botão ao centro verticalmente */
+    background: white;
+    padding: 20px;
+    border-radius: var(--borda-raio-padrao);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease-in-out;
+}
+
+.card-pedido:hover {
+    transform: translateY(-3px);
 }
 
 .card-pedido strong {
-  color: #333;
-  font-size: 1.05rem;
+    color: var(--cor-texto-escuro);
+    font-size: 1.1rem;
+    font-weight: 600;
 }
 
 .card-pedido p {
-  margin: 4px 0;
-  color: #555;
+    margin: 6px 0;
+    color: var(--cor-texto-claro);
+    font-size: 0.95rem;
+}
+
+/* Estilos para Tags de Status - Melhorado */
+.status-tag {
+    padding: 5px 10px;
+    border-radius: 15px; /* Mais arredondado */
+    font-size: 0.85rem;
+    font-weight: 600;
+    display: inline-block;
+    margin-left: 5px; /* Espaçamento entre "Status:" e a tag */
 }
 
 .status-entregue {
-  color: green;
-  font-weight: bold;
+    background-color: #d4edda; /* Verde suave */
+    color: #155724; /* Verde escuro */
 }
 
 .status-em-andamento,
 .status-em-separação {
-  color: orange;
-  font-weight: bold;
+    background-color: #fff3cd; /* Amarelo suave */
+    color: #856404; /* Amarelo escuro */
 }
 
 .status-cancelado {
-  color: red;
-  font-weight: bold;
+    background-color: #f8d7da; /* Vermelho suave */
+    color: #721c24; /* Vermelho escuro */
 }
 
-/* DADOS PESSOAIS */
-.dados-pessoais {
-  display: flex;
-  gap: 30px;
-  margin-top: 20px;
-  align-items: flex-start;
-  flex-wrap: wrap;
+/* DADOS PESSOAIS - Modificações aqui! */
+.dados-pessoais-container {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    margin-top: 20px;
 }
 
-.lado-esquerdo img {
-  width: 140px;
-  height: 140px;
-  border-radius: 50%;
-  border: 2px solid #328f62;
+.perfil-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--cor-borda);
+    margin-bottom: 20px;
 }
 
-.lado-direito {
-  flex: 1;
-  min-width: 280px;
+.foto-perfil {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 3px solid var(--cor-primaria); /* Borda mais suave e integrada */
+    object-fit: cover;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-.grupo-info {
-  background-color: #fff;
-  padding: 15px;
-  border-radius: 8px;
-  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.05);
-  margin-bottom: 15px;
+.perfil-header h3 {
+    margin: 0;
+    font-size: 1.6rem;
+    color: var(--cor-texto-escuro);
+    font-weight: 600;
 }
 
-.nivel-ouro {
-  color: #d4af37;
-  font-weight: bold;
+.perfil-header p {
+    margin: 5px 0 10px;
+    color: var(--cor-texto-claro);
+    font-size: 1rem;
 }
 
-.botoes-conta {
-  margin-top: 10px;
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
+.badge-nivel-cliente {
+    background-color: var(--cor-ouro);
+    color: white;
+    padding: 6px 12px;
+    border-radius: 20px; /* Estilo de badge */
+    font-size: 0.9rem;
+    font-weight: 600;
+    display: inline-block;
+    margin-top: 5px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
-.btn-excluir {
-  background-color: #d9534f;
+.cards-info-wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin-bottom: 20px;
 }
 
-.btn-excluir:hover {
-  background-color: #c9302c;
+.info-card, .form-senha-card {
+    background-color: #fcfcfc; /* Fundo quase branco */
+    padding: 25px;
+    border-radius: var(--borda-raio-padrao);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); /* Sombra mais leve */
+    border: 1px solid var(--cor-borda); /* Borda sutil */
 }
+
+.info-card h4, .form-senha-card h4 {
+    color: var(--cor-primaria);
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+    font-weight: 600;
+    border-bottom: 1px solid var(--cor-borda);
+    padding-bottom: 10px;
+}
+
+.info-card p {
+    margin: 8px 0;
+    color: var(--cor-texto-escuro);
+    font-size: 1rem;
+}
+
+.info-card p strong {
+    color: var(--cor-texto-claro); /* Rótulos um pouco mais claros */
+    font-weight: 500;
+}
+
+.acoes-conta {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+    justify-content: center; /* Centraliza os botões */
+    flex-wrap: wrap;
+}
+
 
 /* Formulário de senha */
-.form-senha {
-  margin-top: 30px;
-  max-width: 400px;
+.form-senha-card {
+    margin-top: 20px;
 }
 
-.form-senha h4 {
-  margin-bottom: 10px;
-  color: #333;
+.input-group {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px 10px 12px 10px;
+    border: 1px solid var(--cor-borda);
+    border-radius: var(--borda-raio-input);
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    background-color: #fff;
+    color: var(--cor-texto-escuro);
+}
+
+.input-group label {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--cor-texto-claro);
+    font-size: 1rem;
+    pointer-events: none;
+    transition: all 0.3s ease;
+    background-color: #fff;
+    padding: 0 4px;
+}
+
+.input-group input:focus {
+    border-color: var(--cor-primaria);
+    box-shadow: 0 0 0 3px rgba(50, 143, 98, 0.2); /* Sombra de foco sutil */
+}
+
+.input-group input:focus + label,
+.input-group input:not(:placeholder-shown) + label {
+    top: 0;
+    font-size: 0.8rem;
+    color: var(--cor-primaria);
+    transform: translateY(-50%);
+}
+
+.form-senha-card .btn-primario {
+    width: 100%; /* Botão de salvar senha em largura total */
+    margin-top: 10px;
 }
 
 /* Redes sociais */
 .redes-conectadas {
-  margin-top: 30px;
-  text-align: center;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid var(--cor-borda);
+    text-align: center;
+}
+
+.redes-conectadas p {
+    font-size: 1.1rem;
+    color: var(--cor-texto-escuro);
+    margin-bottom: 15px;
 }
 
 .logos-sociais {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin-top: 10px;
 }
 
 .logos-sociais svg {
-  font-size: 24px;
-  color: #328f62;
-  transition: transform 0.2s;
+    font-size: 30px; /* Ícones maiores */
+    color: var(--cor-primaria);
+    transition: transform 0.3s ease, color 0.3s ease;
+    cursor: pointer;
 }
 
 .logos-sociais svg:hover {
-  transform: scale(1.2);
+    transform: scale(1.25);
+    color: var(--cor-primaria-hover);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .minha-conta-layout {
+        flex-direction: column;
+        margin-top: 80px;
+    }
+
+    .sidebar-conta {
+        width: 100%;
+        box-shadow: none; /* Remove sombra para mobile */
+        border-bottom: 1px solid var(--cor-borda);
+        border-radius: 0;
+        padding: 15px 20px;
+    }
+
+    .sidebar-conta h3 {
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    .sidebar-conta ul {
+        display: flex; /* Transforma em linha para mobile */
+        justify-content: space-around;
+        flex-wrap: wrap;
+    }
+
+    .sidebar-conta li {
+        padding: 10px 15px;
+        font-size: 0.9rem;
+        gap: 8px;
+    }
+
+    .conteudo-conta {
+        padding: 25px 20px;
+        box-shadow: none; /* Remove sombra para mobile */
+    }
+
+    .conteudo-conta h2 {
+        font-size: 1.6rem;
+        margin-bottom: 20px;
+    }
+
+    .perfil-header {
+        margin-bottom: 15px;
+        padding-bottom: 15px;
+    }
+
+    .cards-info-wrapper {
+        grid-template-columns: 1fr; /* Uma coluna em telas pequenas */
+    }
+
+    .acoes-conta {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .btn-primario, .btn-secundario-perigo {
+        width: 100%;
+        max-width: 250px;
+    }
+
+    .form-senha-card .btn-primario {
+        max-width: none; /* Mantém largura total para botão de senha */
+    }
+}
+
+@media (max-width: 480px) {
+    .sidebar-conta ul {
+        flex-direction: column;
+    }
+
+    .sidebar-conta li {
+        justify-content: center;
+    }
+
+    .foto-perfil {
+        width: 120px;
+        height: 120px;
+    }
 }
