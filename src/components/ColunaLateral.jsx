@@ -4,10 +4,13 @@ import { NavLink, useLocation } from "react-router-dom";
 import {
   FaLaptop,
   FaMicrochip,
-  FaWrench,
+  FaTv,
+  FaSatelliteDish,
+  FaPlug,
   FaTools,
-  FaBolt,
-  FaCog,
+  FaCubes,
+  FaCogs,
+  FaThLarge,
 } from "react-icons/fa";
 import "./ColunaLateral.css";
 
@@ -53,44 +56,44 @@ function ColunaLateral() {
           to="/categoria/Módulos de Comunicação"
           className={({ isActive }) => (isActive ? "lista-item active-lista-item" : "lista-item")}
         >
-          <FaMicrochip className="icon" /> Módulos
+          <FaSatelliteDish className="icon" /> Módulos
         </NavLink>
         <NavLink
           to="/categoria/Displays"
           className={({ isActive }) => (isActive ? "lista-item active-lista-item" : "lista-item")}
         >
-          <FaWrench className="icon" /> Displays
+          <FaTv className="icon" /> Displays
         </NavLink>
         <NavLink
           to="/categoria/Sensores"
           className={({ isActive }) => (isActive ? "lista-item active-lista-item" : "lista-item")}
         >
-          <FaTools className="icon" /> Sensores
+          <FaMicrochip className="icon" /> Sensores
         </NavLink>
         <NavLink
           to="/categoria/Acessórios"
           className={({ isActive }) => (isActive ? "lista-item active-lista-item" : "lista-item")}
         >
-          <FaBolt className="icon" /> Acessórios
+          <FaTools className="icon" /> Acessórios
         </NavLink>
         <NavLink
           to="/categoria/Componentes Eletrônicos"
           className={({ isActive }) => (isActive ? "lista-item active-lista-item" : "lista-item")}
         >
-          <FaBolt className="icon" /> Componentes
+          <FaCubes className="icon" /> Componentes
         </NavLink>
         <NavLink
           to="/categoria/Cabos"
           className={({ isActive }) => (isActive ? "lista-item active-lista-item" : "lista-item")}
         >
-          <FaBolt className="icon" /> Cabos
+          <FaPlug className="icon" /> Cabos
         </NavLink>
         <NavLink
           to="/categoria/todos"
           className={({ isActive }) => (isActive ? "lista-item active-lista-item" : "lista-item")}
-          end // 'end' garante que só será ativo se o path for EXATAMENTE "/categoria/todos"
+          end
         >
-          <FaCog className="icon" /> Todos
+          <FaThLarge className="icon" /> Todos
         </NavLink>
       </div>
 
