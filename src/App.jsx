@@ -8,10 +8,10 @@ import Inicio from "./pages/Inicio";
 import Contato from "./pages/Contato";
 import Entrar from "./pages/Entrar";
 import Carrinho from "./pages/Carrinho";
-// import Produtos from "./pages/Produtos"; // NÃO PRECISA MAIS DESTE
 import DetalheProduto from "./pages/DetalheProduto";
-import PaginaCategoria from "./pages/PaginaCategoria"; // JÁ DEVE ESTAR IMPORTADO
+import PaginaCategoria from "./pages/PaginaCategoria"; 
 import MinhaConta from "./pages/MinhaConta";
+import PerguntasFreq from "./pages/PerguntasFreq";
 
 function App() {
   return (
@@ -25,6 +25,7 @@ function App() {
         <Route path="/categoria/:nomeCategoria" element={<PaginaCategoria />} />
         <Route path="/produto/:id" element={<DetalheProduto />} />
         <Route path="/minha-conta" element={<MinhaConta />} />
+        <Route path="/perguntasfreq" element={<PerguntasFreq />} />
       </Routes>
     </BrowserRouter>
   );

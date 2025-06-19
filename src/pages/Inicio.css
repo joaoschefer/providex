@@ -16,6 +16,35 @@
   --cor-roxo-detalhe: #6f42c1;
 }
 
+.main-content {
+  padding-top: 70px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.page-container {
+  display: flex;
+  width: 100%;
+  max-width: 1200px;
+  padding: 20px;
+  gap: 20px;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.coluna-lateral {
+  min-width: 250px;
+  max-width: 250px;
+}
+
+.conteudo-principal {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+
 /* Estilos base para o container dos banners */
 .destaques {
   max-width: 900px;

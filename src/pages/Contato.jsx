@@ -10,6 +10,8 @@ import {
   FaComments,
   FaQuestionCircle,
 } from "react-icons/fa";
+import { Link } from "react-router-dom";
+
 
 function Contato() {
   const [formData, setFormData] = useState({
@@ -80,9 +82,9 @@ function Contato() {
 
               <div className="lado-direito">
                 <div className="suporte">
-                  <button className="btn-suporte">
+                  <Link to="/perguntasfreq" className="btn-suporte">
                     <FaQuestionCircle /> Dúvidas frequentes
-                  </button>
+                  </Link>
                   <button className="btn-suporte">
                     <FaComments /> Chat ao vivo
                   </button>
