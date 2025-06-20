@@ -13,10 +13,15 @@
   justify-content: center;
 }
 
+.coluna-lateral { 
+  flex-shrink: 0; 
+  width: 280px;
+}
+
 .conteudo-principal {
   display: flex;
   flex-direction: column;
-  width: 100%;
+  flex: 1;
 }
 
 .titulo-carrinho {

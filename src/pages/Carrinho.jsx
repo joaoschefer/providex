@@ -39,7 +39,9 @@ function Carrinho() {
     <>
     <div className="main-content">
       <div className="page-container">
-        <ColunaLateral />
+        <div className="coluna-lateral">
+            <ColunaLateral />
+        </div>
 
         <div className="conteudo-principal">
           <h2 className="titulo-carrinho">Carrinho de Compras</h2>
