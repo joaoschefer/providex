@@ -127,7 +127,7 @@ function Contato() {
               <h3>Perguntas frequentes</h3>
 
               <div className="faq-item">
-                <h4>❓ Como posso rastrear meu pedido?</h4>
+                <h4>Como posso rastrear meu pedido?</h4>
                 <p>
                   Você pode rastrear seu pedido através do link enviado no seu
                   e-mail de confirmação.
@@ -135,12 +135,12 @@ function Contato() {
               </div>
 
               <div className="faq-item">
-                <h4>❓ Quais são as opções de pagamento?</h4>
+                <h4>Quais são as opções de pagamento?</h4>
                 <p>Trabalhamos com cartão de crédito, boleto bancário e PIX.</p>
               </div>
 
               <div className="faq-item">
-                <h4>❓ Vocês oferecem suporte técnico?</h4>
+                <h4>Vocês oferecem suporte técnico?</h4>
                 <p>
                   Sim! Nosso suporte está disponível de segunda a sexta, das 8h
                   às 18h, por telefone, e-mail e chat ao vivo.
@@ -148,7 +148,7 @@ function Contato() {
               </div>
 
               <div className="faq-item">
-                <h4>❓ Em quanto tempo meu pedido é enviado?</h4>
+                <h4>Em quanto tempo meu pedido é enviado?</h4>
                 <p>
                   Pedidos confirmados até às 14h são enviados no mesmo dia útil.
                   Após esse horário, o envio ocorre no próximo dia útil.

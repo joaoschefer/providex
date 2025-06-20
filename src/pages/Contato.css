@@ -34,10 +34,6 @@
   flex-direction: column;
   flex: 1;
   margin-bottom: 20px;
-  /* Se quiser um fundo diferente para a área de conteúdo principal: */
-  /* background-color: var(--cor-fundo-pagina-contato); */
-  /* padding: 20px; */ /* Adicione padding aqui se quiser um espaço interno geral */
-  /* border-radius: var(--border-radius-padrao); */
 }
 
 .titulo-contato {
@@ -234,55 +230,61 @@
 
 /* Perguntas Frequentes */
 .perguntas-frequentes {
-  margin-top: 30px; /* Ajustado */
+  margin-top: 30px;
   background-color: var(--cor-fundo-elemento);
   border: 1px solid var(--cor-borda-elemento);
-  padding: 30px; /* Aumentado */
+  padding: 30px;
   border-radius: var(--border-radius-padrao);
   box-shadow: var(--sombra-card);
 }
 
 .perguntas-frequentes h3 {
-  font-size: 1.5rem; /* Aumentado */
+  font-size: 1.5rem;
   font-weight: 700;
-  margin-bottom: 25px; /* Aumentado */
+  margin-bottom: 25px;
   color: var(--cor-primaria-escura);
 }
 
 .faq-item {
-  padding: 15px 0; /* Espaçamento vertical */
-  border-bottom: 1px solid var(--cor-borda-elemento); /* Linha divisória */
+  padding: 15px 0;
+  border-bottom: 1px solid var(--cor-borda-elemento);
 }
+
 .faq-item:last-child {
-  border-bottom: none; /* Remove a borda do último item */
+  border-bottom: none;
   padding-bottom: 0;
 }
+
 .faq-item:first-child {
   padding-top: 0;
 }
 
 .faq-item h4 {
-  font-size: 1.1rem; /* Aumentado */
+  font-size: 1.1rem;
   font-weight: 600;
-  margin-bottom: 8px; /* Aumentado */
+  margin-bottom: 8px;
   color: var(--cor-texto-principal);
-  display: flex; /* Para alinhar ícone se adicionar */
+  display: flex;
   align-items: center;
 }
-
-/* Se quiser adicionar o ícone de volta via CSS (o ❓ já está no HTML) */
-/* .faq-item h4::before {
-  content: '❓';
-  margin-right: 10px;
-  font-size: 1.2rem;
-} */
 
 .faq-item p {
   font-size: 0.95rem;
   color: var(--cor-texto-secundario);
   margin: 0;
-  padding-left: 0; /* Removido padding antigo, se houver ícone no h4, ele já faz o recuo */
+  padding-left: 0;
   line-height: 1.6;
+}
+
+/* Impede qualquer efeito visual ao passar o mouse */
+.faq-item:hover,
+.faq-item:hover h4,
+.faq-item:hover p {
+  background-color: transparent !important;
+  color: inherit !important;
+  box-shadow: none !important;
+  cursor: default;
+  text-decoration: none;
 }
 
 /* Responsivo - Mantido como estava, pode precisar de ajustes com os novos paddings/tamanhos */
