@@ -1,0 +1,96 @@
+/* =========================================================
+   SEARCH BAR – design original, largura 260 px (desktop),
+   ícone + texto na mesma linha, dropdown e colapso responsivo
+   ========================================================= */
+
+/* ---------- Container ---------- */
+.search{
+  background:#fff;
+  padding:8px 12px;
+  border-radius:4px;
+  width:260px;
+  height:40px;
+  position:relative;
+  transition:width .25s ease;
+}
+
+/* ---------- Form interno ---------- */
+.search form{
+  display:flex;
+  align-items:center;
+}
+
+/* ---------- Ícone ---------- */
+.search-icon{
+  color:#328f62;
+  font-size:20px;
+  margin-right:8px;
+  cursor:pointer;
+}
+
+/* ---------- Input ---------- */
+.search input{
+  flex:1;
+  min-width:0;
+  border:none;
+  outline:none;
+  font-size:14px;
+  color:#333;
+  transition:opacity .2s ease;
+}
+
+/* ---------- Dropdown ---------- */
+.search-dropdown{
+  position:absolute;
+  top:calc(100% + 4px);
+  left:0; right:0;
+  background:#fff;
+  border:1px solid #ccc;
+  border-radius:4px;
+  max-height:220px;
+  overflow-y:auto;
+  z-index:10;
+  padding:4px 0;
+  box-shadow:0 4px 8px rgba(0,0,0,.05);
+}
+.search-dropdown li{
+  display:flex;
+  align-items:center;
+  padding:6px 12px;
+  gap:10px;
+  cursor:pointer;
+  transition:background .2s;
+}
+.search-dropdown li:hover{background:#f0f0f0;}
+.search-dropdown img{
+  width:32px;height:32px;object-fit:cover;border-radius:3px;
+}
+.search-dropdown span{
+  flex:1;font-size:14px;color:#333;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+
+/* ---------- Responsivo (<480 px) ---------- */
+@media(max-width:480px){
+  /* estado COLAPSADO */
+  .search{
+    width:40px;
+    padding:8px;
+  }
+  .search-icon{margin-right:0;}
+  .search input{
+    opacity:0;
+    width:0;
+  }
+
+  /* estado EXPANDIDO quando recebe foco */
+  .search:focus-within{
+    width:70vw;
+    padding:8px 12px;
+  }
+  .search:focus-within .search-icon{margin-right:8px;}
+  .search:focus-within input{
+    opacity:1;
+    width:100%;
+  }
+}

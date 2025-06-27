@@ -34,11 +34,6 @@ function DetalheProduto() {
       <div className="page-container">
         <ColunaLateral />
         <section className="produto-detalhes">
-          <div className="breadcrumb">
-            <a href="/">Início</a> &gt;
-            <a href="/produtos">Produtos</a> &gt;
-            <span>{produto.nome}</span>
-          </div>
 
           <div className="produto-detalhes-conteudo">
             <div className="galeria-produto">

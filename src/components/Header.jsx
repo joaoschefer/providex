@@ -1,31 +1,35 @@
 import React, { useState, useEffect } from "react";
-import { NavLink, useLocation } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import {
   FaSearch,
   FaShoppingCart,
   FaUser,
   FaAddressBook,
   FaLaptop,
+  FaSatelliteDish,   // novo – mesmo do menu lateral
+  FaTv,              // novo
   FaMicrochip,
-  FaWrench,
   FaTools,
-  FaBolt,
+  FaCubes,           // novo
+  FaPlug,            // novo
+  FaThLarge,         // novo
   FaCog,
   FaBars,
   FaTimes,
 } from "react-icons/fa";
 import "./Header.css";
+import SearchBar from "./SearchBar";
 import logo from "../assets/logo-providex.png";
 
 const categoriesForMenu = [
-  { to: "/categoria/Placas de Desenvolvimento", icon: FaLaptop, label: "Placas de Dev" },
-  { to: "/categoria/Módulos de Comunicação", icon: FaMicrochip, label: "Módulos" },
-  { to: "/categoria/Displays", icon: FaWrench, label: "Displays" },
-  { to: "/categoria/Sensores", icon: FaTools, label: "Sensores" },
-  { to: "/categoria/Acessórios", icon: FaBolt, label: "Acessórios" },
-  { to: "/categoria/Componentes Eletrônicos", icon: FaBolt, label: "Componentes" },
-  { to: "/categoria/Cabos", icon: FaBolt, label: "Cabos" },
-  { to: "/categoria/todos", icon: FaCog, label: "Todos os Produtos" },
+  { to: "/categoria/Placas de Desenvolvimento", icon: FaLaptop,       label: "Placas de Dev" },
+  { to: "/categoria/Módulos de Comunicação",    icon: FaSatelliteDish,label: "Módulos" },
+  { to: "/categoria/Displays",                  icon: FaTv,           label: "Displays" },
+  { to: "/categoria/Sensores",                  icon: FaMicrochip,    label: "Sensores" },
+  { to: "/categoria/Acessórios",                icon: FaTools,        label: "Acessórios" },
+  { to: "/categoria/Componentes Eletrônicos",   icon: FaCubes,        label: "Componentes" },
+  { to: "/categoria/Cabos",                     icon: FaPlug,         label: "Cabos" },
+  { to: "/categoria/todos",                     icon: FaThLarge,      label: "Todos" },
 ];
 
 function Header() {
@@ -33,9 +37,15 @@ function Header() {
   const [isLoggedIn, setIsLoggedIn] = useState(true); // Simula login
   const userName = "João"; // Nome do usuário simulado
   const location = useLocation();
+  const navigate = useNavigate(); // Redirecionamento
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
+  };
+
+  const handleLogout = () => {
+    setIsLoggedIn(false);
+    navigate("/entrar");
   };
 
   useEffect(() => {
@@ -52,8 +62,7 @@ function Header() {
         </div>
 
         <div className="search">
-          <FaSearch className="search-icon" />
-          <input type="text" placeholder="Buscar..." />
+          <SearchBar />
         </div>
 
         <div className="buttons desktop-buttons">
@@ -79,7 +88,7 @@ function Header() {
               </button>
               <div className="dropdown-content">
                 <NavLink to="/minha-conta">Minha Conta</NavLink>
-                <button onClick={() => setIsLoggedIn(false)}>Sair</button>
+                <button onClick={handleLogout}>Sair</button>
               </div>
             </div>
           ) : (
@@ -135,7 +144,7 @@ function Header() {
               <button
                 className="mobile-menu-item"
                 onClick={() => {
-                  setIsLoggedIn(false);
+                  handleLogout();
                   setIsMenuOpen(false);
                 }}
               >
