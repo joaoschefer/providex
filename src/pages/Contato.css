@@ -1,33 +1,3 @@
-/* Adicione ou atualize estas variáveis no início do seu Contato.css ou em um arquivo global de variáveis */
-:root {
-  --cor-primaria-escura: #004d25; /* Verde escuro para títulos principais */
-  --cor-primaria-media: #1c8c5e; /* Verde médio para acentos, botões */
-  --cor-primaria-clara: #e8f5e9; /* Verde bem claro para fundos sutis ou hover */
-  --cor-acento-principal: #ffb700; /* Amarelo principal */
-  --cor-acento-hover: #ffc733; /* Amarelo para hover */
-
-  --cor-texto-principal: #222222; /* Para a maioria dos textos */
-  --cor-texto-secundario: #555555; /* Para textos de apoio, placeholders */
-  --cor-texto-label: #333333; /* Para labels de formulário */
-  --cor-texto-branco: #ffffff;
-
-  --cor-fundo-elemento: #ffffff; /* Branco para cards, formulário */
-  --cor-fundo-input: #fdfdfd;
-  --cor-fundo-pagina-contato: #f9fafb; /* Um cinza muito claro para o fundo geral do conteúdo de contato, se desejado */
-
-  --cor-borda-input: #d1d5db; /* Cinza claro para bordas de input */
-  --cor-borda-input-focus: var(--cor-primaria-media);
-  --cor-borda-elemento: #e5e7eb; /* Borda suave para cards */
-
-  --sombra-card: 0 4px 15px rgba(0, 0, 0, 0.06);
-  --sombra-card-hover: 0 6px 20px rgba(0, 0, 0, 0.08);
-  --sombra-input-focus: 0 0 0 3px rgba(28, 140, 94, 0.15);
-
-  --border-radius-padrao: 8px;
-  --border-radius-input: 6px;
-  --border-radius-botao: 6px;
-}
-
 /* Estilos para o conteúdo da página de contato */
 .conteudo-contato {
   display: flex;
@@ -42,80 +12,80 @@
   padding: 10px 0;
   font-weight: 600;
   font-size: 1.7rem;
-  border-bottom: 2px solid #328f62;
+  border-bottom: 2px solid #004d25;
 }
 
 .contato-wrapper {
   display: flex;
-  gap: 35px; /* Levemente aumentado */
+  gap: 35px;
   flex-wrap: wrap;
 }
 
 /* Formulário */
 .formulario-contato {
-  flex: 1.2; /* Dar um pouco mais de espaço para o formulário se possível */
+  flex: 1.2;
   min-width: 320px;
-  background-color: var(--cor-fundo-elemento);
-  padding: 30px; /* Aumentado */
-  border-radius: var(--border-radius-padrao);
-  box-shadow: var(--sombra-card);
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
   display: flex;
   flex-direction: column;
-  gap: 18px; /* Ajustado */
+  gap: 18px;
 }
 
 .formulario-contato label {
-  font-weight: 600; /* Levemente mais suave */
+  font-weight: 600;
   font-size: 0.9rem;
-  color: var(--cor-texto-label);
+  color: #333333;
 }
 
 .formulario-contato input,
 .formulario-contato textarea {
-  padding: 12px 15px; /* Ajustado */
-  border: 1px solid var(--cor-borda-input);
-  border-radius: var(--border-radius-input);
+  padding: 12px 15px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
   font-size: 0.95rem;
-  background-color: var(--cor-fundo-input);
+  background-color: #fdfdfd;
   transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
-  color: var(--cor-texto-principal);
+  color: #333;
 }
 .formulario-contato input::placeholder,
 .formulario-contato textarea::placeholder {
-  color: var(--cor-texto-secundario);
+  color: #555555;
   opacity: 0.8;
 }
 
 .formulario-contato input:focus,
 .formulario-contato textarea:focus {
-  border-color: var(--cor-borda-input-focus);
+  border-color: #27ae60;
   outline: none;
-  background-color: var(--cor-fundo-elemento); /* Fundo branco ao focar */
-  box-shadow: var(--sombra-input-focus);
+  background-color: #ffffff;
+  box-shadow: 0 0 0 3px rgba(28, 140, 94, 0.15);
 }
 
 .formulario-contato textarea {
   resize: vertical;
-  min-height: 120px; /* Altura mínima */
+  min-height: 120px;
 }
 
 .formulario-contato button {
-  background-color: var(--cor-primaria-media);
-  color: var(--cor-texto-branco);
+  background-color: #27ae60;
+  color: #ffffff;
   border: none;
-  border-radius: var(--border-radius-botao);
-  padding: 14px; /* Aumentado */
+  border-radius: 6px;
+  padding: 14px;
   font-weight: 600;
   cursor: pointer;
   transition: background-color 0.2s ease, transform 0.1s ease;
   font-size: 1rem;
-  text-transform: uppercase; /* Mais profissional */
+  text-transform: uppercase;
   letter-spacing: 0.5px;
 }
 
 .formulario-contato button:hover:not(:disabled) {
-  background-color: var(--cor-primaria-escura); /* Escurece no hover */
-  transform: translateY(-1px); /* Leve elevação */
+  background-color: #004d25;
+  transform: translateY(-1px);
 }
 
 .formulario-contato button:disabled {
@@ -127,33 +97,33 @@
 
 /* Lado direito */
 .lado-direito {
-  flex: 0.8; /* Ajustar proporção se necessário */
+  flex: 0.8;
   min-width: 280px;
   display: flex;
   flex-direction: column;
-  gap: 25px; /* Aumentado */
+  gap: 25px;
 }
 
 /* Botões de suporte */
 .suporte {
   display: flex;
-  flex-direction: column; /* Empilhar os botões */
+  flex-direction: column;
   gap: 15px;
 }
 
 .btn-suporte {
   flex: 1;
-  background-color: var(--cor-acento-principal);
-  color: var(--cor-primaria-escura); /* Texto escuro para contraste com amarelo */
-  border: 1px solid transparent; /* Para manter o tamanho no hover */
-  border-radius: var(--border-radius-botao);
-  padding: 14px; /* Aumentado */
+  background-color: #ffb700;
+  color: #004d25;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  padding: 14px;
   font-weight: 600;
   font-size: 0.95rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px; /* Aumentado */
+  gap: 10px;
   cursor: pointer;
   transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.1s ease;
   text-align: center;
@@ -161,93 +131,88 @@
 }
 
 .btn-suporte svg {
-  font-size: 1.1rem; /* Ajuste no tamanho do ícone */
+  font-size: 1.1rem;
 }
 
 .btn-suporte:hover {
-  background-color: var(--cor-acento-hover); /* Amarelo mais claro/vibrante */
-  color: var(--cor-primaria-escura);
+  background-color: #ffc733;
+  color: #004d25;
   transform: translateY(-1px);
-  /* Alternativa: hover com verde
-  background-color: var(--cor-primaria-clara);
-  color: var(--cor-primaria-media);
-  border-color: var(--cor-primaria-media);
-  */
 }
 
 /* Informações de contato */
 .info-contato {
   display: flex;
   flex-direction: column;
-  gap: 15px; /* Espaço entre os info-box */
+  gap: 15px;
 }
 
 .info-contato .info-box {
   display: flex;
-  align-items: flex-start; /* Ícone alinhado ao topo do texto */
-  gap: 18px; /* Espaço entre ícone e texto */
-  background-color: var(--cor-fundo-elemento);
-  padding: 20px; /* Aumentado */
-  border: 1px solid var(--cor-borda-elemento);
-  border-radius: var(--border-radius-padrao);
-  box-shadow: none; /* Removida sombra individual, menos é mais aqui */
+  align-items: flex-start;
+  gap: 18px;
+  background-color: #ffffff;
+  padding: 20px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  box-shadow: none;
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 .info-contato .info-box:hover {
-  border-color: var(--cor-primaria-media);
-  box-shadow: var(--sombra-card); /* Sombra suave no hover */
+  border-color: #229954;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
 }
 
 .info-contato .info-box .icone-info {
-  font-size: 1.4rem; /* Aumentado */
-  color: var(--cor-primaria-media);
-  margin-top: 3px; /* Ajuste fino de alinhamento */
-  flex-shrink: 0; /* Para não encolher o ícone */
-  background-color: var(--cor-primaria-clara); /* Fundo sutil para o ícone */
+  font-size: 1.4rem;
+  color: #229954;
+  margin-top: 3px;
+  flex-shrink: 0;
+  background-color: #e8f5e9;
   padding: 10px;
-  border-radius: 50%; /* Círculo */
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 40px; /* Tamanho fixo */
-  height: 40px; /* Tamanho fixo */
+  width: 40px;
+  height: 40px;
 }
 
 .info-contato .info-box strong {
   display: block;
-  font-size: 1rem; /* Aumentado */
+  font-size: 1rem;
   font-weight: 600;
-  color: var(--cor-primaria-escura);
-  margin-bottom: 4px; /* Ajustado */
+  color: #229954;
+  margin-bottom: 4px;
 }
 
 .info-contato .info-box p {
   margin: 0;
   font-size: 0.9rem;
-  color: var(--cor-texto-secundario);
+  color: #333;
   line-height: 1.5;
 }
 
 /* Perguntas Frequentes */
 .perguntas-frequentes {
   margin-top: 30px;
-  background-color: var(--cor-fundo-elemento);
-  border: 1px solid var(--cor-borda-elemento);
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
   padding: 30px;
-  border-radius: var(--border-radius-padrao);
-  box-shadow: var(--sombra-card);
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
 }
 
 .perguntas-frequentes h3 {
   font-size: 1.5rem;
-  font-weight: 700;
+  font-weight: 600;
   margin-bottom: 25px;
-  color: var(--cor-primaria-escura);
+  color: #004d25;
 }
 
 .faq-item {
   padding: 15px 0;
-  border-bottom: 1px solid var(--cor-borda-elemento);
+  border-bottom: 1px solid #e5e7eb;
 }
 
 .faq-item:last-child {
@@ -263,20 +228,19 @@
   font-size: 1.1rem;
   font-weight: 600;
   margin-bottom: 8px;
-  color: var(--cor-texto-principal);
+  color: #333;
   display: flex;
   align-items: center;
 }
 
 .faq-item p {
   font-size: 0.95rem;
-  color: var(--cor-texto-secundario);
+  color: #333;
   margin: 0;
   padding-left: 0;
   line-height: 1.6;
 }
 
-/* Impede qualquer efeito visual ao passar o mouse */
 .faq-item:hover,
 .faq-item:hover h4,
 .faq-item:hover p {
@@ -287,21 +251,21 @@
   text-decoration: none;
 }
 
-/* Responsivo - Mantido como estava, pode precisar de ajustes com os novos paddings/tamanhos */
+/* Responsivo */
 @media (max-width: 768px) {
   .contato-wrapper {
     flex-direction: column;
-    gap: 25px; /* Ajustar gap para mobile */
+    gap: 25px;
   }
 
   .formulario-contato,
   .lado-direito {
     width: 100%;
-    flex-basis: auto; /* Resetar flex-basis */
+    flex-basis: auto;
   }
 
   .titulo-contato {
-    font-size: 1.7rem; /* Ajustar para telas menores */
+    font-size: 1.7rem;
   }
 
   .formulario-contato {
@@ -309,22 +273,26 @@
   }
 
   .suporte {
-    flex-direction: row; /* Botões lado a lado se couber, ou manter coluna */
+    flex-direction: row;
   }
+
   .btn-suporte {
-    font-size: 0.9rem; /* Ajustar fonte do botão */
+    font-size: 0.9rem;
     padding: 12px;
   }
 
   .perguntas-frequentes {
     padding: 20px;
   }
+
   .perguntas-frequentes h3 {
     font-size: 1.3rem;
   }
+
   .faq-item h4 {
     font-size: 1rem;
   }
+
   .faq-item p {
     font-size: 0.9rem;
   }

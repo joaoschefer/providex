@@ -42,23 +42,6 @@
   }
 }
 
-/* Breadcrumb */
-.breadcrumb {
-  margin-bottom: 1.5rem;
-  font-size: 0.9rem;
-}
-
-.breadcrumb a {
-  color: var(--cor-texto);
-  text-decoration: none;
-  margin: 0 4px;
-}
-
-.breadcrumb span {
-  color: var(--cor-texto);
-  font-weight: bold;
-}
-
 /* Galeria e informações */
 .produto-detalhes-conteudo {
   display: flex;
@@ -124,12 +107,6 @@
 
 .preco {
   margin: 1rem 0;
-}
-
-.preco-antigo {
-  text-decoration: line-through;
-  margin-right: 0.5rem;
-  color: #999;
 }
 
 .preco-atual {

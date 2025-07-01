@@ -16,6 +16,7 @@ import { produtos } from "../data/produtos";
 function MinhaConta() {
   const [secao, setSecao] = useState("dados");
 
+  /* ---- Favoritos e pedidos (mock) ---- */
   const favoritosIds = [
     "esp32_wifi_bt",
     "kit_jumpers_protoboard",
@@ -24,38 +25,14 @@ function MinhaConta() {
   ];
 
   const pedidos = [
-    {
-      id: "PED-00123",
-      data: "12/06/2025",
-      status: "Entregue",
-      total: "R$ 145,90",
-    },
-    {
-      id: "PED-00124",
-      data: "10/06/2025",
-      status: "Em andamento",
-      total: "R$ 89,50",
-    },
-    {
-      id: "PED-00125",
-      data: "08/06/2025",
-      status: "Cancelado",
-      total: "R$ 112,00",
-    },
-    {
-      id: "PED-00126",
-      data: "05/06/2025",
-      status: "Entregue",
-      total: "R$ 52,40",
-    },
-    {
-      id: "PED-00127",
-      data: "02/06/2025",
-      status: "Em separação",
-      total: "R$ 74,30",
-    },
+    { id: "PED-00123", data: "12/06/2025", status: "Entregue",    total: "R$ 145,90" },
+    { id: "PED-00124", data: "10/06/2025", status: "Em andamento", total: "R$ 89,50" },
+    { id: "PED-00125", data: "08/06/2025", status: "Cancelado",   total: "R$ 112,00" },
+    { id: "PED-00126", data: "05/06/2025", status: "Entregue",    total: "R$ 52,40" },
+    { id: "PED-00127", data: "02/06/2025", status: "Em separação", total: "R$ 74,30" },
   ];
 
+  /* ---- Renderizador de conteúdo ---- */
   const renderConteudo = () => {
     switch (secao) {
       case "dados":
@@ -73,12 +50,8 @@ function MinhaConta() {
               <div className="cards-info-wrapper">
                 <div className="info-card">
                   <h4>Dados Básicos</h4>
-                  <p>
-                    <strong>Nome:</strong> João da Silva
-                  </p>
-                  <p>
-                    <strong>E-mail:</strong> joao@email.com
-                  </p>
+                  <p><strong>Nome:</strong> João da Silva</p>
+                  <p><strong>E-mail:</strong> joao@email.com</p>
                 </div>
 
                 <div className="info-card">
@@ -113,9 +86,7 @@ function MinhaConta() {
             </div>
 
             <div className="redes-conectadas">
-              <p>
-                <strong>Contas conectadas:</strong>
-              </p>
+              <p><strong>Contas conectadas:</strong></p>
               <div className="logos-sociais">
                 <FaGoogle />
                 <FaFacebookF />
@@ -130,22 +101,18 @@ function MinhaConta() {
           <>
             <h2>Meus Pedidos</h2>
             <div className="lista-pedidos">
-              {pedidos.map((pedido) => (
-                <div key={pedido.id} className="card-pedido">
+              {pedidos.map((p) => (
+                <div key={p.id} className="card-pedido">
                   <div>
-                    <strong>{pedido.id}</strong>
-                    <p>Data: {pedido.data}</p>
+                    <strong>{p.id}</strong>
+                    <p>Data: {p.data}</p>
                     <p>
                       Status:{" "}
-                      <span
-                        className={`status-tag status-${pedido.status
-                          .toLowerCase()
-                          .replace(/ /g, "-")}`}
-                      >
-                        {pedido.status}
+                      <span className={`status-tag status-${p.status.toLowerCase().replace(/ /g, "-")}`}>
+                        {p.status}
                       </span>
                     </p>
-                    <p>Total: {pedido.total}</p>
+                    <p>Total: {p.total}</p>
                   </div>
                   <button className="btn-primario">Ver Detalhes</button>
                 </div>
@@ -155,7 +122,7 @@ function MinhaConta() {
         );
 
       case "favoritos":
-        const favoritos = produtos.filter((p) => favoritosIds.includes(p.id));
+        const favoritos = produtos.filter((prod) => favoritosIds.includes(prod.id));
         return (
           <>
             <h2>Meus Favoritos</h2>
@@ -166,9 +133,7 @@ function MinhaConta() {
                   <div>
                     <h4>{prod.nome}</h4>
                     <p>{prod.preco}</p>
-                    <a href={`/produto/${prod.id}`} className="btn-primario">
-                      Ver Produto
-                    </a>
+                    <a href={`/produto/${prod.id}`} className="btn-primario">Ver Produto</a>
                   </div>
                 </div>
               ))}
@@ -187,13 +152,13 @@ function MinhaConta() {
         <aside className="sidebar-conta">
           <h3>Minha Conta</h3>
           <ul>
-            <li onClick={() => setSecao("dados")}>
+            <li className={secao === "dados"     ? "active" : ""} onClick={() => setSecao("dados")}>
               <FaUser /> Dados Pessoais
             </li>
-            <li onClick={() => setSecao("pedidos")}>
+            <li className={secao === "pedidos"   ? "active" : ""} onClick={() => setSecao("pedidos")}>
               <FaBoxOpen /> Meus Pedidos
             </li>
-            <li onClick={() => setSecao("favoritos")}>
+            <li className={secao === "favoritos" ? "active" : ""} onClick={() => setSecao("favoritos")}>
               <FaHeart /> Favoritos
             </li>
             <li onClick={() => alert("Você saiu!")}>

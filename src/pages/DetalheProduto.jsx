@@ -56,7 +56,7 @@ function DetalheProduto() {
                 {produto.precoAnterior && (
                   <span className="preco-antigo">R$ {produto.precoAnterior}</span>
                 )}
-                <span className="preco-atual">R$ {produto.preco}</span>
+                <span className="preco-atual"> {produto.preco}</span>
               </div>
               <p><strong>Categoria:</strong> {produto.categoria}</p>
               <p><strong>Marca:</strong> {produto.marca}</p>

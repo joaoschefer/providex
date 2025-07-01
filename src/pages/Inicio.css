@@ -3,24 +3,24 @@
 /* Importar fonte Montserrat */
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap");
 
-/* --- Variáveis de Cor (Baseadas nas Referências) --- */
+/* ---------- Paleta padronizada ---------- */
 :root {
-  --cor-fundo-verde: #27ae60;
-  --cor-fundo-verde-escuro: #229954;
-  --cor-texto-creme: #fdf5e6;
-  --cor-amarelo-acento: #f1c40f;
-  --cor-amarelo-esverdeado: #aee85a;
-  --cor-grafite-suave: #4a4a4a;
-  --cor-branco-puro: #ffffff;
-  /* Adicionando a cor roxa que apareceu nos estilos da FaixaDiferenciais */
-  --cor-roxo-detalhe: #6f42c1;
+  --c-primary:            #27ae60;   /* verde principal */
+  --c-primary-dark:       #229954;   /* verde mais escuro / hover */
+  --c-accent:             #f1c40f;   /* amarelo principal */
+  --c-accent-light:       #ffc733;   /* amarelo hover (usado em botões da outra página) */
+  --c-accent-green:       #aee85a;   /* amarelo-esverdeado opcional */
+  --c-light:              #fdf5e6;   /* creme / texto claro */
+  --c-dark:               #4a4a4a;   /* grafite suave / texto escuro */
+  --c-white:              #ffffff;   /* branco puro */
+  --c-purple:             #6f42c1;   /* roxo de detalhe */
 }
 
+/* ---------- Estrutura geral ---------- */
 .main-content {
   padding-top: 70px;
   display: flex;
   justify-content: center;
-  
 }
 
 .page-container {
@@ -43,20 +43,18 @@
   flex-direction: column;
 }
 
-
-/* Estilos base para o container dos banners */
+/* ---------- Banners de destaque ---------- */
 .destaques {
   max-width: 900px;
   width: 100%;
   margin: 0 auto;
 }
 
-/* Estilos base para os slides do banner - Estilo Referência */
 .banner-slide {
   height: 320px;
   border-radius: 12px;
-  color: var(--cor-texto-creme);
-  display: flex !important; /* Important para react-slick direct children */
+  color: var(--c-light);
+  display: flex !important;           /* react-slick exige */
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -66,10 +64,11 @@
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
   position: relative;
   overflow: hidden;
-  background-color: var(--cor-fundo-verde);
-  background-image: linear-gradient(rgba(0,0,0,0.05), rgba(0,0,0,0.15)),
-                    radial-gradient(var(--cor-fundo-verde-escuro) 10%, transparent 12%),
-                    radial-gradient(var(--cor-fundo-verde-escuro) 10%, transparent 12%);
+  background-color: var(--c-primary);
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.15)),
+    radial-gradient(var(--c-primary-dark) 10%, transparent 12%),
+    radial-gradient(var(--c-primary-dark) 10%, transparent 12%);
   background-size: 12px 12px, 12px 12px;
   background-position: 0 0, 6px 6px, 0 0;
 }
@@ -79,7 +78,7 @@
   content: "";
   position: absolute;
   opacity: 0.15;
-  background-color: var(--cor-amarelo-acento);
+  background-color: var(--c-accent);
   border-radius: 50%;
   z-index: 0;
 }
@@ -118,22 +117,25 @@
   line-height: 1.6;
 }
 
+/* Promo */
 .banner-promo .icon-wrapper {
-  background-color: rgba(255,255,255, 0.15);
+  background-color: rgba(255, 255, 255, 0.15);
   border-radius: 50%;
   padding: 15px;
   margin-bottom: 15px;
   display: inline-block;
-  color: var(--cor-texto-creme);
+  color: var(--c-light);
 }
 
-.banner-promo h2 { font-size: 2.6rem; }
+.banner-promo h2 {
+  font-size: 2.6rem;
+}
 
 .banner-promo p.tagline {
   font-size: 1.3rem;
   font-weight: 700;
-  background-color: var(--cor-amarelo-acento);
-  color: var(--cor-grafite-suave);
+  background-color: var(--c-accent);
+  color: var(--c-dark);
   padding: 10px 28px;
   border-radius: 8px;
   display: inline-block;
@@ -142,35 +144,38 @@
   margin-top: 10px;
 }
 
+/* Preços */
 .banner-precos h2 {
   font-size: 3rem;
   font-weight: 900;
-  color: var(--cor-branco-puro);
+  color: var(--c-white);
 }
 
 .banner-precos p.subtext {
   font-size: 1.1rem;
   font-weight: 500;
-  color: var(--cor-texto-creme);
+  color: var(--c-light);
   max-width: 80%;
   margin: 0 auto;
   display: block !important;
 }
 
+/* Lançamentos */
 .banner-lancamentos .icon-wrapper {
-  background-color: rgba(255,255,255, 0.15);
+  background-color: rgba(255, 255, 255, 0.15);
   border-radius: 50%;
   padding: 15px;
   margin-bottom: 15px;
   display: inline-block;
 }
+
 .banner-lancamentos .icon-wrapper svg {
-    color: var(--cor-amarelo-acento);
+  color: var(--c-accent);
 }
 
 .banner-lancamentos h2 {
   font-size: 2.7rem;
-  color: var(--cor-branco-puro);
+  color: var(--c-white);
 }
 
 .banner-lancamentos p.description {
@@ -178,13 +183,14 @@
   font-weight: 500;
   max-width: 550px;
   margin-top: 5px;
-  color: var(--cor-amarelo-acento);
+  color: var(--c-accent);
   display: block !important;
 }
 
+/* Botão do banner */
 .banner-slide .btn-banner {
-  background-color: var(--cor-amarelo-acento);
-  color: var(--cor-grafite-suave);
+  background-color: var(--c-accent);
+  color: var(--c-dark);
   padding: 12px 30px;
   border-radius: 25px;
   text-decoration: none;
@@ -192,34 +198,37 @@
   font-size: 1rem;
   margin-top: 20px;
   display: inline-block;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   transition: background-color 0.3s ease;
   z-index: 1;
 }
 
+/* Animação */
 @keyframes subtleFadeInUp {
   from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
-.banner-slide h2, .banner-slide p, .banner-slide .icon-wrapper, .banner-slide .btn-banner {
-  animation: subtleFadeInUp 0.7s 0.2s ease-out forwards;
+.banner-slide h2,
+.banner-slide p,
+.banner-slide .icon-wrapper,
+.banner-slide .btn-banner {
+  animation: subtleFadeInUp 0.7s ease-out forwards;
   opacity: 0;
 }
 
-.banner-slide h2 { animation-delay: 0.2s; }
-.banner-slide p { animation-delay: 0.4s; }
-.banner-slide .icon-wrapper { animation-delay: 0.1s; }
-.banner-slide .btn-banner { animation-delay: 0.6s; }
+.banner-slide h2           { animation-delay: 0.2s; }
+.banner-slide p            { animation-delay: 0.4s; }
+.banner-slide .icon-wrapper{ animation-delay: 0.1s; }
+.banner-slide .btn-banner  { animation-delay: 0.6s; }
 
-/* --- Estilos para Faixa de Diferenciais (APARÊNCIA E RESPONSIVIDADE QUANDO VISÍVEL) --- */
+/* ---------- Faixa de Diferenciais ---------- */
 .faixa-diferenciais-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: var(--cor-branco-puro);
+  background-color: var(--c-white);
   padding: 18px 15px;
-  border-bottom: 2px solid var(--cor-roxo-detalhe); /* Usando variável de cor */
   margin-bottom: 25px;
   width: 100%;
   box-sizing: border-box;
@@ -231,13 +240,12 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  color: var(--cor-grafite-suave);
+  color: #333;
   text-align: left;
 }
 
 .diferencial-icon svg {
   font-size: 2rem;
-  color: var(--cor-roxo-detalhe); /* Usando variável de cor */
   flex-shrink: 0;
 }
 
@@ -248,24 +256,15 @@
   line-height: 1.25;
 }
 
-/* Ajustes responsivos para FaixaDiferenciais QUANDO VISÍVEL */
+/* Media queries (faixa-diferenciais) */
 @media (max-width: 1100px) {
-  .faixa-diferenciais-container .diferencial-icon svg {
-    font-size: 1.8rem;
-  }
-  .faixa-diferenciais-container .diferencial-text {
-    font-size: 0.8rem;
-  }
-  .faixa-diferenciais-container {
-    gap: 8px;
-    padding: 15px 10px;
-  }
-  .faixa-diferenciais-container .diferencial-item {
-    gap: 8px;
-  }
+  .faixa-diferenciais-container .diferencial-icon svg { font-size: 1.8rem; }
+  .faixa-diferenciais-container .diferencial-text     { font-size: 0.8rem; }
+  .faixa-diferenciais-container                       { gap: 8px; padding: 15px 10px; }
+  .faixa-diferenciais-container .diferencial-item     { gap: 8px; }
 }
 
-@media (max-width: 900px) { /* Breakpoint onde a faixa começa a quebrar linha */
+@media (max-width: 900px) {
   .faixa-diferenciais-container {
     flex-wrap: wrap;
     justify-content: space-around;
@@ -276,12 +275,8 @@
     min-width: 160px;
     justify-content: flex-start;
   }
-  .faixa-diferenciais-container .diferencial-icon svg {
-    font-size: 1.9rem;
-  }
-  .faixa-diferenciais-container .diferencial-text {
-    font-size: 0.85rem;
-  }
+  .faixa-diferenciais-container .diferencial-icon svg { font-size: 1.9rem; }
+  .faixa-diferenciais-container .diferencial-text     { font-size: 0.85rem; }
 }
 
 @media (max-width: 600px) {
@@ -292,26 +287,17 @@
 }
 
 @media (max-width: 420px) {
-  .faixa-diferenciais-container {
-      justify-content: center;
-  }
+  .faixa-diferenciais-container { justify-content: center; }
   .faixa-diferenciais-container .diferencial-item {
     flex-basis: 100%;
     justify-content: center;
   }
-  .faixa-diferenciais-container .diferencial-icon svg {
-    font-size: 1.8rem;
-  }
-  .faixa-diferenciais-container .diferencial-text {
-    font-size: 0.8rem;
-  }
+  .faixa-diferenciais-container .diferencial-icon svg { font-size: 1.8rem; }
+  .faixa-diferenciais-container .diferencial-text     { font-size: 0.8rem; }
 }
 
-
-/* Mais vendidos */
-.mais-vendidos {
-  margin-top: 40px;
-}
+/* ---------- Lista de Produtos ---------- */
+.mais-vendidos { margin-top: 40px; }
 
 .mais-vendidos h3 {
   font-size: 1.6rem;
@@ -323,10 +309,7 @@
   font-weight: 700;
 }
 
-/* Lançamentos */
-.lancamentos {
-  margin-top: 50px;
-}
+.lancamentos { margin-top: 50px; }
 
 .lancamentos h3 {
   font-size: 1.6rem;
@@ -338,7 +321,6 @@
   font-weight: 700;
 }
 
-/* Produtos */
 .lista-produtos {
   display: flex;
   gap: 25px;
@@ -349,7 +331,7 @@
 .card-produto {
   width: 100%;
   max-width: 280px;
-  background-color: var(--cor-branco-puro) !important;
+  background-color: var(--c-white) !important;
   border: 1px solid #e0e0e0;
   border-radius: 10px !important;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.07);
@@ -360,7 +342,7 @@
 
 .card-produto:hover {
   transform: translateY(-8px);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
 }
 
 .card-produto img {
@@ -373,7 +355,7 @@
 
 .card-produto h4 {
   font-size: 1.1rem;
-  color: var(--cor-grafite-suave);
+  color: var(--c-dark);
   margin-bottom: 10px;
   font-weight: 600;
   min-height: 44px;
@@ -381,14 +363,14 @@
 
 .card-produto .preco {
   font-weight: 700;
-  color: var(--cor-fundo-verde);
+  color: #4caf50;
   margin-bottom: 15px;
   font-size: 1.25rem;
 }
 
 .btn-vermais {
-  background-color: var(--cor-fundo-verde);
-  color: var(--cor-branco-puro);
+  background-color: #4caf50;
+  color: var(--c-white);
   border: none;
   padding: 10px 20px;
   border-radius: 6px;
@@ -401,94 +383,48 @@
 }
 
 .btn-vermais:hover {
-  background-color: var(--cor-fundo-verde-escuro);
+  background-color: #43a047;
   transform: scale(1.05);
 }
 
-
-/* --- RESPONSIVIDADE GERAL DA PÁGINA INICIO --- */
-
-/* Breakpoint para ESCONDER COMPLETAMENTE FaixaDiferenciais */
-/* Escolha o breakpoint onde a faixa deve sumir. Ex: 768px para tablets e abaixo. */
-/* Este breakpoint deve ser MENOR que os breakpoints onde a faixa ainda se ajusta (ex: 900px). */
+/* ---------- Responsividade geral ---------- */
 @media (max-width: 768px) {
-  .faixa-diferenciais-container {
-    display: none !important; /* Esconde a faixa completamente */
-  }
+  .faixa-diferenciais-container { display: none !important; }
 
-  /* Outros ajustes para a página Inicio em telas menores */
-  .destaques {
-    max-width: 100%;
-    padding-left: 10px;
-    padding-right: 10px;
-    margin-top: 20px; /* Adiciona margem no topo se a faixa sumir */
-  }
+  .destaques { max-width: 100%; padding: 0 10px; margin-top: 20px; }
 
-   .banner-slide {
-    height: auto;
-    min-height: 280px;
-    padding: 25px 20px;
-  }
-
-  .banner-slide h2 { font-size: 2rem; margin-bottom: 10px; }
-  .banner-promo h2 { font-size: 2.2rem; }
-  .banner-precos h2 { font-size: 2.4rem; }
+  .banner-slide       { height: auto; min-height: 280px; padding: 25px 20px; }
+  .banner-slide h2    { font-size: 2rem; margin-bottom: 10px; }
+  .banner-promo h2    { font-size: 2.2rem; }
+  .banner-precos h2   { font-size: 2.4rem; }
   .banner-lancamentos h2 { font-size: 2.3rem; }
 
-  .banner-slide p { font-size: 1rem; }
+  .banner-slide p     { font-size: 1rem; }
   .banner-promo p.tagline { font-size: 1.1rem; padding: 8px 20px; margin-top: 15px; }
   .banner-lancamentos p.description,
-  .banner-precos p.subtext {
-    max-width: 90%;
-  }
+  .banner-precos p.subtext { max-width: 90%; }
 
-  .lista-produtos {
-    justify-content: center;
-  }
-
-  .card-produto {
-    max-width: 260px;
-  }
+  .lista-produtos { justify-content: center; }
+  .card-produto   { max-width: 260px; }
 
   .mais-vendidos h3,
-  .lancamentos h3 {
-    font-size: 1.4rem;
-    justify-content: center;
-  }
+  .lancamentos h3 { font-size: 1.4rem; justify-content: center; }
 }
 
-/* Ajustes para telas ainda menores (celulares) */
 @media (max-width: 480px) {
-    .destaques {
-      padding-left: 5px;
-      padding-right: 5px;
-    }
-    .banner-slide {
-      min-height: 250px;
-      padding: 20px 15px;
-    }
+  .destaques { padding: 0 5px; }
+  .banner-slide { min-height: 250px; padding: 20px 15px; }
 
-    .banner-slide h2 { font-size: 1.7rem; }
-    .banner-promo h2 { font-size: 1.9rem; }
-    .banner-precos h2 { font-size: 2rem; }
-    .banner-lancamentos h2 { font-size: 1.8rem; }
+  .banner-slide h2 { font-size: 1.7rem; }
+  .banner-promo h2 { font-size: 1.9rem; }
+  .banner-precos h2, .banner-lancamentos h2 { font-size: 2rem; }
 
-    .banner-slide p { font-size: 0.9rem; }
-    .banner-promo p.tagline { font-size: 1rem; padding: 7px 15px; }
+  .banner-slide p          { font-size: 0.9rem; }
+  .banner-promo p.tagline  { font-size: 1rem; padding: 7px 15px; }
 
-    .banner-slide .icon-wrapper { padding: 10px; margin-bottom: 10px; }
-    .banner-slide .icon-wrapper svg { font-size: 30px !important; } /* Ajuste o tamanho do ícone se necessário */
+  .banner-slide .icon-wrapper { padding: 10px; margin-bottom: 10px; }
+  .banner-slide .icon-wrapper svg { font-size: 30px !important; }
 
-
-    .card-produto {
-        max-width: calc(100% - 20px); /* Ocupar largura, com pequena margem */
-        margin-left: auto;
-        margin-right: auto;
-    }
-     .lista-produtos {
-        gap: 15px;
-    }
+  .card-produto { max-width: calc(100% - 20px); margin: 0 auto; }
+  .lista-produtos { gap: 15px; }
 }
-
-
-
