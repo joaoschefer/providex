@@ -12,6 +12,7 @@ import DetalheProduto from "./pages/DetalheProduto";
 import PaginaCategoria from "./pages/PaginaCategoria"; 
 import MinhaConta from "./pages/MinhaConta";
 import PerguntasFreq from "./pages/PerguntasFreq";
+import Depoimentos from "./pages/Depoimentos";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
         <Route path="/produto/:id" element={<DetalheProduto />} />
         <Route path="/minha-conta" element={<MinhaConta />} />
         <Route path="/perguntasfreq" element={<PerguntasFreq />} />
+        <Route path="/depoimentos" element={<Depoimentos />} />
       </Routes>
     </BrowserRouter>
   );

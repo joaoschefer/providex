@@ -1,6 +1,6 @@
 // src/components/ColunaLateral.jsx
 import React, { useState, useEffect } from "react";
-import { NavLink, useLocation } from "react-router-dom";
+import { NavLink, Link, useLocation } from "react-router-dom";
 import {
   FaLaptop,
   FaMicrochip,
@@ -98,7 +98,9 @@ function ColunaLateral() {
       </div>
 
       <div className="depoimentos">
-        <h2 className="titulo-depoimentos">Depoimentos</h2>
+        <h2 className="titulo-depoimentos">
+          <Link to="/depoimentos" className="link-titulo">Depoimentos</Link>
+        </h2>
         <div className="linha-separadora"></div>
         <div className="depoimentos-container">
           <div className="depoimento-card">

@@ -107,6 +107,12 @@
   margin-bottom: 8px;
 }
 
+/* herda a aparência do h2, mas remove sublinhado */
+.link-titulo {
+  color: inherit;
+  text-decoration: none;
+}
+
 .depoimentos-container {
   display: flex;
   flex-direction: column;

@@ -1,0 +1,59 @@
+/* Reaproveite as variáveis :root já definidas no projeto */
+
+/* -------- Layout geral -------- */
+.conteudo-depoimentos-page {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  margin-bottom: 20px;
+}
+
+/* -------- Título -------- */
+.titulo-depoimentos-page {
+  color: var(--cor-primaria-escura);
+  margin-bottom: 10px;
+  padding: 10px 0;
+  font-weight: 600;
+  font-size: 1.7rem;
+  border-bottom: 2px solid var(--cor-primaria-media);
+}
+
+/* -------- Lista de depoimentos -------- */
+.lista-depoimentos-page {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.depoimento-page {
+  background-color: var(--cor-fundo-elemento);
+  padding: 25px;
+  border-left: 5px solid var(--cor-primaria-media);
+  border-radius: var(--border-radius-padrao);
+  box-shadow: var(--sombra-card);
+}
+
+.depoimento-page p {
+  margin: 0 0 8px 0;
+  font-size: 1rem;
+  color: var(--cor-texto-principal);
+  line-height: 1.6;
+}
+
+.depoimento-page h4 {
+  margin: 0;
+  font-weight: 600;
+  color: var(--cor-texto-secundario);
+  font-size: 0.95rem;
+}
+
+/* -------- Responsivo -------- */
+@media (max-width: 768px) {
+  .titulo-depoimentos-page {
+    font-size: 1.6rem;
+  }
+
+  .depoimento-page {
+    padding: 20px;
+  }
+}
