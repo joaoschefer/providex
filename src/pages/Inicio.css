@@ -5,7 +5,7 @@
 
 /* ---------- Paleta padronizada ---------- */
 :root {
-  --c-primary:            #27ae60;   /* verde principal */
+  --c-primary:            #1d7441;   /* verde principal */
   --c-primary-dark:       #229954;   /* verde mais escuro / hover */
   --c-accent:             #f1c40f;   /* amarelo principal */
   --c-accent-light:       #ffc733;   /* amarelo hover (usado em botões da outra página) */
